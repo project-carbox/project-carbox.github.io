@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://project-carbox.github.io/carbox.github.io/"><img src="https://img.shields.io/badge/Live_Portal-project--carbox.github.io-00e5ff?style=flat-square&logo=githubpages" alt="Live Site" /></a>
+  <a href="https://project-carbox.github.io/"><img src="https://img.shields.io/badge/Live_Portal-project--carbox.github.io-00e5ff?style=flat-square&logo=githubpages" alt="Live Site" /></a>
   <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
   <a href="mailto:suleyman.hacizade1@gmail.com?subject=Private%20Data%20%26%20Repository%20Access%20Request%20-%20Project%20Carbox"><img src="https://img.shields.io/badge/Private_Data_Access-Request_via_Email-dc2626?style=flat-square&logo=gmail" alt="Request Access" /></a>
   <a href="mailto:suleyman.hacizade1@gmail.com"><img src="https://img.shields.io/badge/Contact-suleyman.hacizade1%40gmail.com-10b981?style=flat-square&logo=gmail" alt="Contact" /></a>
