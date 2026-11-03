@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbox — Structural Identification of Anomalous Carboxyl Protonation & LBHBs</title>
-    <meta name="description" content="Carbox is an open scientific platform and crystallographic validation framework for identifying anomalous carboxyl protonation states, low-barrier hydrogen bonds (LBHBs), and dielectric shielding in macromolecular crystals.">
-    <meta name="author" content="Suleiman M Hajizadeh, Garib N Murshudov">
+    <title>Carbox — Structural Identification of Anomalous Carboxyl Protonation &amp; LBHBs | Project Carbox</title>
     
-    <!-- Open Graph / Social Meta -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Carbox — Macromolecular Crystallography & LBHB Validation">
-    <meta property="og:description" content="Computational framework developed by Suleiman M Hajizadeh and Prof. Garib N Murshudov for high-throughput detection and validation of carboxyl-carboxyl interactions.">
-    <meta property="og:image" content="assets/og-image.png">
-    <meta property="og:url" content="https://project-carbox.github.io/">
+    <!-- Primary SEO Meta Tags -->
+    <meta name="description" content="Carbox is an advanced computational biology and macromolecular crystallographic validation framework engineered by Suleiman M Hajizadeh and Prof. Garib N Murshudov for high-throughput detection of anomalous carboxyl protonation states, low-barrier hydrogen bonds (LBHBs), and dielectric shielding in protein crystal structures.">
+    <meta name="keywords" content="Carbox, Project Carbox, Macromolecular Crystallography, Low-Barrier Hydrogen Bond, LBHB, Anomalous Carboxyl Protonation, Dielectric Shielding, Garib Murshudov, Suleiman Hajizadeh, MRC LMB Cambridge, Institute of Molecular Biology, Western Caspian University, REFMAC5 Restraints, Servalcat, PDB Screening, PROPKA pKa Shift, Tukey IQR Outlier, Fisher Z RSCC, Electron Density Validation, Structural Biology, 1KZK, 1OEW, 2DSX, 1FKN, HIV-1 protease, endothiapepsin, rubredoxin">
+    <meta name="author" content="Suleiman M Hajizadeh, Garib N Murshudov">
+    <meta name="creator" content="Suleiman M Hajizadeh &amp; Garib N Murshudov">
+    <meta name="publisher" content="Project Carbox">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#030712">
+    <meta name="application-name" content="Carbox">
+    <meta name="rating" content="General">
+    <meta name="revisit-after" content="2 days">
 
-    <!-- Favicon -->
+    <!-- Canonical & Alternate Multi-Language URLs -->
+    <link rel="canonical" href="https://project-carbox.github.io/">
+    <link rel="alternate" hreflang="en" href="https://project-carbox.github.io/">
+    <link rel="alternate" hreflang="az" href="https://project-carbox.github.io/#methodology">
+    <link rel="alternate" hreflang="x-default" href="https://project-carbox.github.io/">
+    <link rel="help" href="https://project-carbox.readthedocs.io/en/latest/">
+
+    <!-- Open Graph (Facebook, LinkedIn, Discord, Telegram) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Project Carbox">
+    <meta property="og:title" content="Carbox — Structural Identification of Anomalous Carboxyl Protonation &amp; LBHBs">
+    <meta property="og:description" content="High-throughput macromolecular crystallographic validation platform by Suleiman M Hajizadeh and Prof. Garib N Murshudov. Rigorously separating genuine shared-proton LBHBs from refinement artifacts across 7,230 atomic-resolution PDB entries.">
+    <meta property="og:url" content="https://project-carbox.github.io/">
+    <meta property="og:image" content="https://project-carbox.github.io/assets/og-image.png">
+    <meta property="og:image:secure_url" content="https://project-carbox.github.io/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Project Carbox Macromolecular Crystallography Framework">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="az_AZ">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@project_carbox">
+    <meta name="twitter:creator" content="@SuleimanHajizadeh">
+    <meta name="twitter:title" content="Carbox — Structural Identification of Anomalous Carboxyl Protonation &amp; LBHBs">
+    <meta name="twitter:description" content="Crystallographic validation platform by Suleiman M Hajizadeh &amp; Prof. Garib N Murshudov separating genuine shared-proton LBHBs from refinement artifacts across the PDB.">
+    <meta name="twitter:image" content="https://project-carbox.github.io/assets/og-image.png">
+    <meta name="twitter:image:alt" content="Project Carbox Molecular Crystallography Showcase">
+
+    <!-- Favicon & Touch Icons -->
     <link rel="icon" type="image/x-icon" href="assets/carbox_favicon.ico">
-    <link rel="icon" type="image/png" href="assets/carbox_favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/carbox_favicon.png">
+    <link rel="apple-touch-icon" href="assets/carbox_favicon.png">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +63,179 @@
     
     <!-- 3Dmol.js for Lightweight In-Browser 3D Molecular Graphics -->
     <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+
+    <!-- Schema.org JSON-LD Structured Data for High-Authority Search Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://project-carbox.github.io/#website",
+          "url": "https://project-carbox.github.io/",
+          "name": "Project Carbox",
+          "description": "High-Throughput Macromolecular Crystallographic Validation Platform for Anomalous Carboxyl Protonation & Low-Barrier Hydrogen Bonds",
+          "publisher": {
+            "@id": "https://project-carbox.github.io/#organization"
+          },
+          "inLanguage": ["en", "az"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://project-carbox.readthedocs.io/en/latest/search.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://project-carbox.github.io/#organization",
+          "name": "Project Carbox",
+          "url": "https://project-carbox.github.io/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://project-carbox.github.io/assets/carbox_logo.png",
+            "width": 512,
+            "height": 512
+          },
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Suleiman M Hajizadeh",
+              "jobTitle": "Lead Researcher & Bioinformatician",
+              "affiliation": [
+                {
+                  "@type": "Organization",
+                  "name": "Institute of Molecular Biology, Ministry of Science and Education of the Republic of Azerbaijan"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Western Caspian University"
+                }
+              ],
+              "sameAs": [
+                "https://orcid.org/my-orcid?orcid=0009-0003-7842-1921",
+                "https://github.com/SuleimanHajizadeh",
+                "https://www.linkedin.com/in/suleiman-hajizadeh-609732213/"
+              ]
+            },
+            {
+              "@type": "Person",
+              "name": "Garib N Murshudov",
+              "jobTitle": "Scientific Advisor & Professor of Structural Biology",
+              "affiliation": {
+                "@type": "Organization",
+                "name": "MRC Laboratory of Molecular Biology (LMB), Cambridge Biomedical Campus, United Kingdom"
+              }
+            }
+          ],
+          "sameAs": [
+            "https://github.com/project-carbox",
+            "https://project-carbox.readthedocs.io/en/latest/",
+            "https://carboxmol.github.io"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "suleyman.hacizade1@gmail.com",
+            "contactType": "scientific collaboration & data access requests"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://project-carbox.github.io/#article",
+          "headline": "Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Macromolecular Crystal Structures",
+          "name": "Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Suleiman M Hajizadeh"
+            },
+            {
+              "@type": "Person",
+              "name": "Garib N Murshudov"
+            }
+          ],
+          "datePublished": "2026-01-01",
+          "publisher": {
+            "@id": "https://project-carbox.github.io/#organization"
+          },
+          "url": "https://project-carbox.github.io/",
+          "description": "A comprehensive macromolecular crystallographic framework for distinguishing genuine low-barrier hydrogen bonds (LBHBs) from modeling artifacts and unmodeled metals across 7,230 sub-angstrom crystal structures.",
+          "keywords": "crystallography, LBHB, low-barrier hydrogen bonds, protonation, REFMAC5, dielectric shielding, Fisher Z RSCC, Tukey IQR",
+          "about": [
+            "Macromolecular Crystallography",
+            "Low-Barrier Hydrogen Bonds",
+            "Anomalous Carboxyl Protonation",
+            "Electron Density Map Validation"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://project-carbox.github.io/#software",
+          "name": "Carbox",
+          "operatingSystem": "Linux, macOS, Windows",
+          "applicationCategory": "ScientificApplication",
+          "softwareVersion": "0.4.5",
+          "url": "https://project-carbox.readthedocs.io/en/latest/",
+          "author": {
+            "@id": "https://project-carbox.github.io/#organization"
+          },
+          "downloadUrl": "https://github.com/project-carbox/carbox-docs",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://project-carbox.github.io/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://project-carbox.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mission & Vision",
+              "item": "https://project-carbox.github.io/#vision"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "4-Stage Protocol",
+              "item": "https://project-carbox.github.io/#methodology"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "3D Case Studies",
+              "item": "https://project-carbox.github.io/#viewer"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Golden Benchmarks",
+              "item": "https://project-carbox.github.io/#benchmarks"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Citation & Open Science",
+              "item": "https://project-carbox.github.io/#citation"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "Official Documentation",
+              "item": "https://project-carbox.readthedocs.io/en/latest/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">

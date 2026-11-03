@@ -1,0 +1,19 @@
+# Robots.txt for Project Carbox (https://project-carbox.github.io/)
+# Principal Architecture Search Engine Directives
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /index.html
+Allow: /styles.css
+Allow: /app.js
+
+# Prevent indexing hidden files or source control
+Disallow: /.git/
+Disallow: /.github/
+
+# Crawl-delay recommendation (polite indexing)
+Crawl-delay: 1
+
+# XML Sitemap Location
+Sitemap: https://project-carbox.github.io/sitemap.xml
