@@ -169,6 +169,16 @@ body {
     transform: translateY(-1px);
 }
 
+.btn-docs-nav {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #ffffff;
+}
+
+.btn-docs-nav:hover {
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+    transform: translateY(-1px);
+}
+
 .btn-github {
     background: var(--bg-surface-elevated);
     color: var(--text-primary);
@@ -1328,6 +1338,20 @@ body {
 .r-link-highlight:hover {
     border-color: #ef4444 !important;
     box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+}
+
+.r-link-rtd {
+    border-color: rgba(2, 132, 199, 0.4) !important;
+    background: rgba(2, 132, 199, 0.06) !important;
+}
+
+.r-link-rtd i {
+    color: #38bdf8 !important;
+}
+
+.r-link-rtd:hover {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
 }
 
 .affil-tag {

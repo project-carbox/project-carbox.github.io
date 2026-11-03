@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="https://project-carbox.github.io/"><img src="https://img.shields.io/badge/Live_Portal-project--carbox.github.io-00e5ff?style=flat-square&logo=githubpages" alt="Live Site" /></a>
+  <a href="https://carbox.readthedocs.io/"><img src="https://img.shields.io/badge/Docs-Read_the_Docs-0284c7?style=flat-square&logo=readthedocs&logoColor=white" alt="Read the Docs" /></a>
   <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
   <a href="mailto:suleyman.hacizade1@gmail.com?subject=Private%20Data%20%26%20Repository%20Access%20Request%20-%20Project%20Carbox"><img src="https://img.shields.io/badge/Private_Data_Access-Request_via_Email-dc2626?style=flat-square&logo=gmail" alt="Request Access" /></a>
   <a href="mailto:suleyman.hacizade1@gmail.com"><img src="https://img.shields.io/badge/Contact-suleyman.hacizade1%40gmail.com-10b981?style=flat-square&logo=gmail" alt="Contact" /></a>
@@ -87,8 +88,19 @@ If you use the Carbox platform, benchmark datasets, or methodology in your resea
 
 ---
 
+## 📚 Documentation & Technical Manuals
+
+Complete user documentation, crystallographic theory, API guides, and trilingual memoranda are hosted on **Read the Docs**:
+- 📖 **Read the Docs Portal:** [https://carbox.readthedocs.io/](https://carbox.readthedocs.io/)
+- **Trilingual Manuals:** English (`en`), Azerbaijani (`az`), and Hebrew (`he`).
+- **Refinement Restraints:** Algorithmic guide for REFMAC5 & Servalcat restraint generation.
+- **Validation Memoranda:** Comprehensive crystallographic review and benchmark validation records.
+
+---
+
 ## 🔗 Related Repositories
 
 - **Core Engine & Colab Notebook**: [`project-carbox/carbox`](https://github.com/project-carbox/carbox)
+- **Documentation**: [https://carbox.readthedocs.io/](https://carbox.readthedocs.io/)
 - **Desktop 3D Electron Density Suite**: [`carboxmol/carboxmol`](https://github.com/carboxmol/carboxmol)
 - **Project Organization**: [`project-carbox`](https://github.com/project-carbox)
