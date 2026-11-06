@@ -30,10 +30,10 @@
 
 ## 🔬 Overview
 
-**Carbox** (`project-carbox.github.io`) is the official public web showcase for the Carbox research platform. Designed by **Suleiman M Hajizadeh** in collaboration with **Prof. Garib N Murshudov** (MRC-LMB Cambridge), this portal presents a rigorous crystallographic validation framework engineered to distinguish genuine shared-proton Low-Barrier Hydrogen Bonds (LBHBs) from refinement artifacts, thermal disorder, and unmodeled cation complexes across the Protein Data Bank (PDB).
+**Carbox** (`project-carbox.github.io`) is the official public web showcase for the Carbox research platform. Designed and developed by **Suleiman M Hajizadeh**, this portal presents a computational validation framework inspired by the crystallographic refinement philosophy of **Prof. Garib N Murshudov** (MRC-LMB Cambridge) to evaluate atomic-resolution protein structures and distinguish genuine shared-proton Low-Barrier Hydrogen Bonds (LBHBs) from refinement artifacts, thermal disorder, and unmodeled cation complexes across the Protein Data Bank (PDB).
 
 > *"If there is no electron density for atoms, they are mismodeled. If atoms are mismodeled, the distance between them is completely meaningless."*  
-> — **Prof. Garib N Murshudov**, MRC Laboratory of Molecular Biology (Cambridge)
+> — **Prof. Garib N Murshudov**, MRC Laboratory of Molecular Biology (Cambridge, Seminar 20 October 2026)
 
 ---
 
@@ -55,13 +55,13 @@
 
 ---
 
-## 👥 Scientific Leadership & Affiliations
+## 👥 Author & Scientific Acknowledgment
 
-- **Suleiman M Hajizadeh**  
+- **Suleiman M Hajizadeh** (Author & Lead Developer)  
   *Institute of Molecular Biology, Ministry of Science and Education of the Republic of Azerbaijan*  
   *Western Caspian University, Baku, Azerbaijan*
 
-- **Garib N Murshudov**  
+- **Prof. Garib N Murshudov** (Scientific Inspiration & Theoretical Reference)  
   *MRC Laboratory of Molecular Biology (LMB), Cambridge Biomedical Campus, Cambridge, United Kingdom*
 
 ---
@@ -71,17 +71,10 @@
 If you use the Carbox platform, benchmark datasets, or methodology in your research, please cite:
 
 ```bibtex
-@article{HajizadehMurshudov2026,
-  author    = {Hajizadeh, Suleiman M and Murshudov, Garib N},
-  title     = {Structural Identification of Anomalous Carboxyl Protonation States,
-               Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding
-               in High-Resolution Protein Crystal Structures},
-  journal   = {Carbox & CarboxMol Macromolecular Crystallography Suite},
+@software{HajizadehCarbox2026,
+  author    = {Hajizadeh, Suleiman M},
+  title     = {Carbox: Macromolecular Coordinate & Geometry Calculation Engine for Carboxyl Microenvironments and Stereochemical Validation},
   year      = {2026},
-  volume    = {0},
-  number    = {4},
-  pages     = {1--35},
-  publisher = {Project Carbox},
   url       = {https://project-carbox.github.io/}
 }
 ```
