@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Garib Murshudov's 4-Stage &amp; 6-Stage Crystallographic Validation Protocol | Project Carbox</title>
+    <meta name="description" content="Complete mathematical and crystallographic specification of the Project Carbox validation protocol by Suleiman M Hajizadeh and Prof. Garib N Murshudov (MRC-LMB Cambridge): Euclidean contact mining, Tukey IQR B-factor filtering, Fisher Z-transformed RSCC, PROPKA pKa shifts, and REFMAC5/Servalcat restraints.">
+    <meta name="keywords" content="Carbox Methodology, Garib Murshudov Protocol, Suleiman Hajizadeh, Tukey IQR B-factor, Fisher Z RSCC, Real-Space Correlation Coefficient, PROPKA pKa Shift, Low-Barrier Hydrogen Bond, LBHB, Anomalous Carboxyl Protonation, REFMAC5, Servalcat, CCP4, Gemmi, Macromolecular Crystallography">
+    <meta name="author" content="Suleiman M Hajizadeh &amp; Garib N Murshudov">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="geo.region" content="AZ-BA">
+    <meta name="geo.placename" content="Baku, Azerbaijan; Cambridge, United Kingdom">
+
+    <link rel="canonical" href="https://project-carbox.github.io/methodology/">
+    <link rel="alternate" hreflang="en" href="https://project-carbox.github.io/methodology/">
+    <link rel="alternate" hreflang="az" href="https://project-carbox.github.io/methodology/">
+    <link rel="alternate" hreflang="x-default" href="https://project-carbox.github.io/methodology/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Project Carbox">
+    <meta property="og:title" content="Prof. Garib Murshudov's Crystallographic Validation Protocol | Project Carbox">
+    <meta property="og:description" content="Mathematical formulation of Project Carbox: separating genuine shared-proton LBHBs from refinement artifacts using Tukey IQR B-factor limits, Fisher Z RSCC, and PROPKA.">
+    <meta property="og:url" content="https://project-carbox.github.io/methodology/">
+    <meta property="og:image" content="https://project-carbox.github.io/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@SuleimanHajizadeh">
+    <meta name="twitter:title" content="Prof. Garib Murshudov's Crystallographic Validation Protocol | Project Carbox">
+    <meta name="twitter:description" content="Mathematical formulation of Project Carbox by Suleiman M Hajizadeh &amp; Garib N Murshudov.">
+    <meta name="twitter:image" content="https://project-carbox.github.io/assets/og-image.png">
+
+    <link rel="icon" type="image/png" href="../assets/carbox_favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://project-carbox.github.io/methodology/#article",
+          "headline": "Prof. Garib Murshudov's Multi-Stage Crystallographic Validation Protocol for Anomalous Carboxyl Protonation and Low-Barrier Hydrogen Bonds",
+          "url": "https://project-carbox.github.io/methodology/",
+          "author": [
+            { "@type": "Person", "name": "Suleiman M Hajizadeh", "url": "https://project-carbox.github.io/" },
+            { "@type": "Person", "name": "Garib N Murshudov", "affiliation": "MRC Laboratory of Molecular Biology (LMB), Cambridge" }
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "Project Carbox",
+            "url": "https://project-carbox.github.io/"
+          },
+          "description": "Mathematical and algorithmic framework for screening high-resolution macromolecular crystal structures for carboxyl-carboxyl low-barrier hydrogen bonds (LBHBs)."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://project-carbox.github.io/methodology/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Project Carbox", "item": "https://project-carbox.github.io/" },
+            { "@type": "ListItem", "position": 2, "name": "4-Stage & 6-Stage Methodology", "item": "https://project-carbox.github.io/methodology/" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../" class="brand-group">
+                <img src="../assets/carbox_logo.svg" alt="Carbox Logo" class="brand-logo" onerror="this.src='../assets/carbox_logo.png'">
+                <div class="brand-text">
+                    <span class="brand-name">CARBOX</span>
+                    <span class="brand-tag">CRYSTALLOGRAPHIC VALIDATION</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="../" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="../methodology/" class="nav-link"><i class="fa-solid fa-layer-group"></i> Methodology</a>
+                <a href="../benchmarks/" class="nav-link"><i class="fa-solid fa-table-list"></i> Benchmarks</a>
+                <a href="../viewer/" class="nav-link"><i class="fa-solid fa-cube"></i> 3D Showcase</a>
+                <a href="../docs/" class="nav-link"><i class="fa-solid fa-book-open"></i> Docs &amp; CLI</a>
+                <a href="../citation/" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> Citation</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://project-carbox.readthedocs.io/en/latest/SCIENTIFIC_METHODOLOGY.html" target="_blank" rel="noopener" class="btn btn-docs-nav">
+                    <i class="fa-solid fa-book-open"></i> Read the Docs
+                </a>
+                <a href="../#methodology" class="btn btn-colab">
+                    <i class="fa-solid fa-sliders"></i> Interactive Stepper
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="section" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CRYSTALLOGRAPHIC PROTOCOL &bull; v0.4.5</span>
+                <h1 class="section-title">Prof. Garib Murshudov's Multi-Stage Validation Protocol</h1>
+                <p class="section-subtitle">
+                    Engineered by <strong>Suleiman M Hajizadeh</strong> (Institute of Molecular Biology &amp; Western Caspian University, Baku) and <strong>Prof. Garib N Murshudov</strong> (MRC Laboratory of Molecular Biology, Cambridge) to eliminate false-positive carboxyl contacts in the Protein Data Bank.
+                </p>
+            </div>
+
+            <div class="vision-grid">
+                <article class="vision-card solution-card">
+                    <h3>Stage 1: High-Resolution Geometric &amp; Solvent Mining</h3>
+                    <p>
+                        Screens atomic-resolution crystal structures (&le; 1.20 &Aring;) for side-chain Asp (OD1/OD2) and Glu (OE1/OE2) oxygen pairs within Euclidean distance <strong>d(O&middot;&middot;&middot;O) &le; 3.20 &Aring;</strong> (LBHB regime: <strong>2.40 &Aring; &le; d &le; 2.55 &Aring;</strong>). Evaluates solvent exclusion via centroid distance to nearest crystallographic water (<strong>d<sub>water</sub> &gt; 3.0 &Aring;</strong> = Buried low-dielectric core, &epsilon;<sub>eff</sub> &approx; 2&ndash;4).
+                    </p>
+                </article>
+
+                <article class="vision-card solution-card">
+                    <h3>Stage 2: Non-Parametric Tukey IQR B-Factor &amp; Fisher Z RSCC</h3>
+                    <p>
+                        Applies non-parametric Tukey Interquartile Range fences (<strong>B<sub>cutoff</sub> = Q<sub>3</sub> + 1.5 &middot; IQR</strong> and <strong>Q<sub>3</sub> + 3.0 &middot; IQR</strong>) alongside Fisher z-transformed Real-Space Correlation Coefficients (<strong>z = 0.5 &middot; ln((1+CC)/(1-CC))</strong>, requiring <strong>Z<sub>CC</sub> &ge; -3.0</strong> and <strong>RSCC &ge; 0.85</strong>) to discard disordered loops and misfitted side chains.
+                    </p>
+                </article>
+
+                <article class="vision-card solution-card">
+                    <h3>Stage 3: 70-Metal Coordination &amp; Alternate Conformer Pruning</h3>
+                    <p>
+                        Excludes carboxyl pairs bridging divalent/trivalent metal cations (Zn<sup>2+</sup>, Mg<sup>2+</sup>, Ca<sup>2+</sup>, Fe<sup>2+/3+</sup>, Mn<sup>2+</sup>, Na<sup>+</sup>, K<sup>+</sup> within 3.20 &Aring;) and enforces crystallographic occupancy consistency (|q<sub>A</sub> &minus; q<sub>B</sub>| &le; 0.20, q<sub>min</sub> &ge; 0.50).
+                    </p>
+                </article>
+
+                <article class="vision-card solution-card">
+                    <h3>Stage 4: Biochemical pKa Shift &amp; REFMAC5 / Servalcat Restraints</h3>
+                    <p>
+                        Validates thermodynamic protonation shifts via empirical <strong>PROPKA 3</strong> calculations (&Delta;pKa &ge; +2.0, local pKa &ge; 6.0&ndash;8.2) and generates asymmetric <strong>C&ndash;O (1.21 &Aring;) / C&ndash;OH (1.31 &Aring;)</strong> bond-length restraint dictionaries for <strong>REFMAC5</strong> and <strong>Servalcat</strong> refinement.
+                    </p>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="../#methodology" class="btn btn-colab"><i class="fa-solid fa-layer-group"></i> Explore Interactive 4-Stage Stepper</a>
+                <a href="../docs/" class="btn btn-docs-nav"><i class="fa-solid fa-terminal"></i> View CLI &amp; Mathematical Reference</a>
+                <a href="https://project-carbox.readthedocs.io/en/latest/SCIENTIFIC_METHODOLOGY.html" target="_blank" rel="noopener" class="btn btn-github"><i class="fa-solid fa-book-open"></i> Full Chapter on Read the Docs</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <div>
+                    <div class="footer-brand">Project Carbox &bull; Suleiman M Hajizadeh &amp; Garib N Murshudov</div>
+                    <div class="footer-email">Private Data &amp; Access: <a href="mailto:suleyman.hacizade1@gmail.com">suleyman.hacizade1@gmail.com</a> &bull; <a href="../">project-carbox.github.io</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

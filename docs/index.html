@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbox Official Documentation, CLI Commands &amp; API Reference (v0.4.5) | Project Carbox</title>
+    <meta name="description" content="Official Project Carbox &amp; CarboxMol documentation hub by Suleiman M Hajizadeh &amp; Prof. Garib N Murshudov: CLI commands (carbox 4LGN, carbox survey, carbox validate, carboxmol 4LGN), Python API (CarboxEngine), Servalcat/REFMAC5 restraints, and Murshudov 6-stage protocol.">
+    <meta name="keywords" content="Carbox Documentation, Project Carbox Docs, carbox CLI, carbox 4LGN, carboxmol 4LGN, carbox survey, carbox validate, CarboxEngine Python API, REFMAC5 Restraints, Servalcat Protocol, Garib Murshudov Memorandum, Suleiman M Hajizadeh, Read the Docs Carbox">
+    <meta name="author" content="Suleiman M Hajizadeh &amp; Garib N Murshudov">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <link rel="canonical" href="https://project-carbox.github.io/docs/">
+    <link rel="alternate" hreflang="en" href="https://project-carbox.github.io/docs/">
+    <link rel="alternate" hreflang="az" href="https://project-carbox.github.io/docs/">
+    <link rel="alternate" hreflang="x-default" href="https://project-carbox.github.io/docs/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Project Carbox Documentation">
+    <meta property="og:title" content="Carbox Official Documentation, CLI Commands &amp; API Reference (v0.4.5) | Project Carbox">
+    <meta property="og:description" content="Complete command-line (carbox &amp; carboxmol), Python API, and crystallographic refinement documentation by Suleiman M Hajizadeh &amp; Garib N Murshudov.">
+    <meta property="og:url" content="https://project-carbox.github.io/docs/">
+    <meta property="og:image" content="https://project-carbox.github.io/assets/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@SuleimanHajizadeh">
+    <meta name="twitter:title" content="Carbox Official Documentation &amp; CLI Reference (v0.4.5)">
+    <meta name="twitter:description" content="Complete CLI, Python API, and Servalcat/REFMAC5 crystallographic manual by Suleiman M Hajizadeh &amp; Garib N Murshudov.">
+    <meta name="twitter:image" content="https://project-carbox.github.io/assets/og-image.png">
+
+    <link rel="icon" type="image/png" href="../assets/carbox_favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://project-carbox.github.io/docs/#techarticle",
+          "headline": "Carbox & CarboxMol Official Documentation, CLI Commands, and API Reference (v0.4.5)",
+          "url": "https://project-carbox.github.io/docs/",
+          "author": [
+            { "@type": "Person", "name": "Suleiman M Hajizadeh", "url": "https://project-carbox.github.io/" },
+            { "@type": "Person", "name": "Garib N Murshudov", "affiliation": "MRC Laboratory of Molecular Biology (LMB), Cambridge" }
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "Project Carbox",
+            "url": "https://project-carbox.github.io/"
+          },
+          "description": "Complete technical documentation for the Carbox crystallographic validation engine and CarboxMol 3D workbench, including CLI commands, Python API, and REFMAC5/Servalcat restraint protocols."
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://project-carbox.github.io/docs/#cli",
+          "name": "Carbox & CarboxMol CLI (v0.4.5)",
+          "programmingLanguage": "Python",
+          "runtimePlatform": "Python 3.10+, Gemmi, CCP4, Servalcat, REFMAC5",
+          "codeRepository": "https://github.com/project-carbox/carbox-docs",
+          "author": [
+            { "@type": "Person", "name": "Suleiman M Hajizadeh" },
+            { "@type": "Person", "name": "Garib N Murshudov" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://project-carbox.github.io/docs/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Project Carbox", "item": "https://project-carbox.github.io/" },
+            { "@type": "ListItem", "position": 2, "name": "Documentation & CLI Reference", "item": "https://project-carbox.github.io/docs/" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../" class="brand-group">
+                <img src="../assets/carbox_logo.svg" alt="Carbox Logo" class="brand-logo" onerror="this.src='../assets/carbox_logo.png'">
+                <div class="brand-text">
+                    <span class="brand-name">CARBOX</span>
+                    <span class="brand-tag">DOCUMENTATION HUB</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="../" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="../methodology/" class="nav-link"><i class="fa-solid fa-layer-group"></i> Methodology</a>
+                <a href="../benchmarks/" class="nav-link"><i class="fa-solid fa-table-list"></i> Benchmarks</a>
+                <a href="../viewer/" class="nav-link"><i class="fa-solid fa-cube"></i> 3D Showcase</a>
+                <a href="../docs/" class="nav-link"><i class="fa-solid fa-book-open"></i> Docs &amp; CLI</a>
+                <a href="../citation/" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> Citation</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://project-carbox.readthedocs.io/en/latest/" target="_blank" rel="noopener" class="btn btn-docs-nav">
+                    <i class="fa-solid fa-book-open"></i> Read the Docs
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="section" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OFFICIAL DOCUMENTATION &amp; CLI MANUAL &bull; v0.4.5</span>
+                <h1 class="section-title">Project Carbox Documentation &amp; CLI Reference</h1>
+                <p class="section-subtitle">
+                    Authored by <strong>Suleiman M Hajizadeh &amp; Prof. Garib N Murshudov</strong>. Indexed directly on <code>project-carbox.github.io/docs/</code> and mirrored on <a href="https://project-carbox.readthedocs.io/en/latest/" target="_blank" rel="noopener" style="color: #38bdf8;">project-carbox.readthedocs.io/en/latest/</a>.
+                </p>
+            </div>
+
+            <div class="vision-grid">
+                <article class="vision-card solution-card">
+                    <h3><i class="fa-solid fa-terminal"></i> 1. Quick-Start CLI Commands</h3>
+                    <p>Run instant single-structure PDB validation, batch surveys, or REFMAC5 restraint generation from your terminal:</p>
+                    <pre class="code-block" style="margin-top: 12px;"><code># Direct PDB structure inspection &amp; contact screening
+carbox 4LGN
+carbox 1KZK --Format json
+
+# Multi-PDB directory survey with CSV export
+carbox survey ./pdb_dataset --cutoff 3.2 -o results.csv
+
+# Asymmetric C-O / C-OH REFMAC5 &amp; Servalcat restraint generation
+carbox validate -p 4LGN --atom "A:75:OD2" --out-restraints 4lgn_restraints.txt
+
+# Launch CarboxMol 3D Crystallographic Studio on a PDB target
+carboxmol 4LGN</code></pre>
+                </article>
+
+                <article class="vision-card solution-card">
+                    <h3><i class="fa-solid fa-book-atlas"></i> 2. Official Read the Docs Chapters</h3>
+                    <p>Browse all 8 peer-review documentation chapters in full detail:</p>
+                    <ul class="check-list" style="margin-top: 12px;">
+                        <li><i class="fa-solid fa-book"></i> <a href="https://project-carbox.readthedocs.io/en/latest/GETTING_STARTED.html" target="_blank" rel="noopener" style="color: #38bdf8;">Getting Started &amp; Installation Guide</a></li>
+                        <li><i class="fa-solid fa-atom"></i> <a href="https://project-carbox.readthedocs.io/en/latest/SCIENTIFIC_METHODOLOGY.html" target="_blank" rel="noopener" style="color: #38bdf8;">Scientific Methodology &amp; Mathematical Formulations</a></li>
+                        <li><i class="fa-solid fa-filter"></i> <a href="https://project-carbox.readthedocs.io/en/latest/MURSHUDOV_MEMORANDUM.html" target="_blank" rel="noopener" style="color: #38bdf8;">Prof. Garib Murshudov's 6-Stage Validation Memorandum</a></li>
+                        <li><i class="fa-solid fa-sliders"></i> <a href="https://project-carbox.readthedocs.io/en/latest/SERVALCAT_PROTOCOL.html" target="_blank" rel="noopener" style="color: #38bdf8;">Servalcat &amp; REFMAC5 Unrestrained Refinement Protocol</a></li>
+                        <li><i class="fa-solid fa-code"></i> <a href="https://project-carbox.readthedocs.io/en/latest/CLI_AND_API_REFERENCE.html" target="_blank" rel="noopener" style="color: #38bdf8;">CLI, Python API (CarboxEngine) &amp; .CXL Reference</a></li>
+                        <li><i class="fa-solid fa-cube"></i> <a href="https://project-carbox.readthedocs.io/en/latest/WEBAPP_GUIDE.html" target="_blank" rel="noopener" style="color: #38bdf8;">CarboxMol 3D WebGL &amp; Desktop Studio Guide</a></li>
+                        <li><i class="fa-solid fa-shield-halved"></i> <a href="https://project-carbox.readthedocs.io/en/latest/DATA_ACCESS_POLICY.html" target="_blank" rel="noopener" style="color: #38bdf8;">Controlled Data Access &amp; Confidentiality Policy</a></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <div>
+                    <div class="footer-brand">Project Carbox &bull; Suleiman M Hajizadeh &amp; Garib N Murshudov</div>
+                    <div class="footer-email">Private Data &amp; Access: <a href="mailto:suleyman.hacizade1@gmail.com">suleyman.hacizade1@gmail.com</a> &bull; <a href="../">project-carbox.github.io</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
