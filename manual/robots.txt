@@ -1,0 +1,8 @@
+# Robots.txt for Read the Docs (Project Carbox Documentation)
+User-agent: *
+Allow: /
+Allow: /en/latest/
+Allow: /_static/
+
+# Sitemap declaration
+Sitemap: https://project-carbox.readthedocs.io/en/latest/sitemap.xml

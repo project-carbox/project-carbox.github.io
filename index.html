@@ -18,12 +18,18 @@
     <meta name="application-name" content="Carbox">
     <meta name="rating" content="General">
     <meta name="revisit-after" content="2 days">
+    <meta name="geo.region" content="AZ-BA">
+    <meta name="geo.placename" content="Baku, Azerbaijan; Cambridge, United Kingdom">
+    <meta name="geo.position" content="40.4093;49.8671">
+    <meta name="ICBM" content="40.4093, 49.8671">
 
     <!-- Canonical & Alternate Multi-Language URLs -->
     <link rel="canonical" href="https://project-carbox.github.io/">
-    <link rel="alternate" hreflang="en" href="https://project-carbox.github.io/">
-    <link rel="alternate" hreflang="az" href="https://project-carbox.github.io/#methodology">
+    <link rel="alternate" hreflang="en" href="https://project-carbox.github.io/manual/en/index.html">
+    <link rel="alternate" hreflang="az" href="https://project-carbox.github.io/manual/az/index.html">
+    <link rel="alternate" hreflang="he" href="https://project-carbox.github.io/manual/he/index.html">
     <link rel="alternate" hreflang="x-default" href="https://project-carbox.github.io/">
+    <link rel="manifest" href="manifest.json">
     <link rel="help" href="https://project-carbox.readthedocs.io/en/latest/">
 
     <!-- Open Graph (Facebook, LinkedIn, Discord, Telegram) -->
@@ -130,7 +136,9 @@
           "sameAs": [
             "https://github.com/project-carbox",
             "https://project-carbox.readthedocs.io/en/latest/",
-            "https://carboxmol.github.io"
+            "https://carboxmol.github.io/",
+            "https://carboxmol-bioinformatics-club.github.io/",
+            "https://carboxmol-virtulab.github.io/"
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -171,19 +179,82 @@
           "@type": "SoftwareApplication",
           "@id": "https://project-carbox.github.io/#software",
           "name": "Carbox",
-          "operatingSystem": "Linux, macOS, Windows",
+          "alternateName": ["Project Carbox", "Carbox Crystallographic Validation Engine"],
+          "operatingSystem": "Linux, macOS, Windows, Web Browser (WebGL)",
           "applicationCategory": "ScientificApplication",
           "softwareVersion": "0.4.5",
-          "url": "https://project-carbox.readthedocs.io/en/latest/",
+          "url": "https://project-carbox.github.io/",
+          "softwareHelp": "https://project-carbox.readthedocs.io/en/latest/",
           "author": {
             "@id": "https://project-carbox.github.io/#organization"
           },
           "downloadUrl": "https://github.com/project-carbox/carbox-docs",
+          "featureList": [
+            "High-Throughput Sub-1.20 Å PDB Carboxyl Contact Mining (7,230 Crystal Structures)",
+            "Non-Parametric Tukey IQR Thermal B-Factor Outlier Rejection (Q3 + 1.5*IQR)",
+            "Singularity-Protected Fisher Z-Transformed Real-Space Correlation (RSCC >= 0.85)",
+            "70-Element Metal Coordination & Alternate Conformer Veto",
+            "Empirical PROPKA 3 & Born Desolvation pKa Shift Verification (Delta pKa >= +2.0)",
+            "Automated REFMAC5 & Servalcat Asymmetric C-O / C-OH Restraint Dictionary Generation",
+            "Trilingual Scientific Documentation (English, Azerbaijani, Hebrew RTL)"
+          ],
           "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
           }
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://project-carbox.github.io/#dataset",
+          "name": "Project Carbox Golden Validated Low-Barrier Hydrogen Bond (LBHB) Benchmark Dataset",
+          "description": "Curated crystallographic benchmark dataset of validated anomalous carboxyl protonation states and Low-Barrier Hydrogen Bonds (1KZK, 1OEW, 2DSX, 1FKN, 4ZM7) passing all 4 stages of the Suleiman M Hajizadeh & Garib N Murshudov validation protocol.",
+          "url": "https://project-carbox.github.io/benchmarks/",
+          "version": "0.4.5",
+          "isAccessibleForFree": true,
+          "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+          "creator": {
+            "@id": "https://project-carbox.github.io/#organization"
+          },
+          "keywords": ["LBHB", "Low-Barrier Hydrogen Bond", "Carboxyl Protonation", "1KZK", "1OEW", "2DSX", "1FKN", "4ZM7", "Macromolecular Crystallography"]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://project-carbox.github.io/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Project Carbox (Carbox) and who developed it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Project Carbox (https://project-carbox.github.io/) is a macromolecular crystallographic validation framework and CLI/Python engine engineered by Suleiman M Hajizadeh (Institute of Molecular Biology & Western Caspian University, Baku) and Prof. Garib N Murshudov (MRC Laboratory of Molecular Biology, Cambridge) to detect genuine anomalous carboxyl protonation states and Low-Barrier Hydrogen Bonds (LBHBs) while eliminating refinement artifacts across 7,230 high-resolution PDB structures."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Carbox separate true Low-Barrier Hydrogen Bonds (LBHBs) from crystallographic artifacts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Carbox applies Prof. Garib Murshudov's multi-stage validation protocol: (1) Euclidean Asp/Glu oxygen contact mining (d <= 2.55 Å for LBHB, d_water > 3.0 Å for buried low-dielectric cores), (2) Non-parametric Tukey IQR B-factor outlier pruning (Q3 + 1.5*IQR) and Fisher Z-transformed 2mFo-DFc electron density correlation (RSCC >= 0.85, Z_CC >= -3.0), (3) 70-metal cation bridge veto and occupancy consistency checks, and (4) PROPKA 3 pKa shift verification (Delta pKa >= +2.0) with REFMAC5/Servalcat restraint generation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is the official Project Carbox documentation and CLI reference?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The official trilingual documentation (English, Azerbaijani, Hebrew RTL) is available on Read the Docs at https://project-carbox.readthedocs.io/en/latest/, on the hosted manual mirror at https://project-carbox.github.io/manual/index.html, and on the CLI reference page at https://project-carbox.github.io/docs/."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can researchers request access to the private 7,230-PDB dataset and core Carbox repository?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All raw screening datasets and core repositories (github.com/project-carbox/carbox) are strictly private. Academic collaborators and peer reviewers may request direct access by emailing Lead Researcher Suleiman M Hajizadeh at suleyman.hacizade1@gmail.com."
+              }
+            }
+          ]
         },
         {
           "@type": "BreadcrumbList",
@@ -198,38 +269,38 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Mission & Vision",
-              "item": "https://project-carbox.github.io/#vision"
+              "name": "4-Stage Protocol & Methodology",
+              "item": "https://project-carbox.github.io/methodology/"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "4-Stage Protocol",
-              "item": "https://project-carbox.github.io/#methodology"
+              "name": "Golden Validated Benchmarks",
+              "item": "https://project-carbox.github.io/benchmarks/"
             },
             {
               "@type": "ListItem",
               "position": 4,
-              "name": "3D Case Studies",
-              "item": "https://project-carbox.github.io/#viewer"
+              "name": "3D Case Studies Viewer",
+              "item": "https://project-carbox.github.io/viewer/"
             },
             {
               "@type": "ListItem",
               "position": 5,
-              "name": "Golden Benchmarks",
-              "item": "https://project-carbox.github.io/#benchmarks"
+              "name": "Documentation & CLI Reference",
+              "item": "https://project-carbox.github.io/docs/"
             },
             {
               "@type": "ListItem",
               "position": 6,
-              "name": "Citation & Open Science",
-              "item": "https://project-carbox.github.io/#citation"
+              "name": "Trilingual Scientific Manual",
+              "item": "https://project-carbox.github.io/manual/index.html"
             },
             {
               "@type": "ListItem",
               "position": 7,
-              "name": "Official Documentation",
-              "item": "https://project-carbox.readthedocs.io/en/latest/"
+              "name": "Citation & Data Access",
+              "item": "https://project-carbox.github.io/citation/"
             }
           ]
         }
@@ -685,9 +756,10 @@
                             <span>BibTeX Reference</span>
                             <button class="btn-copy" id="btn-copy-bibtex"><i class="fa-regular fa-copy"></i> Copy BibTeX</button>
                         </div>
-                        <pre class="code-block" id="bibtex-code"><code>@software{HajizadehCarbox2026,
-  author    = {Hajizadeh, Suleiman M},
+                        <pre class="code-block" id="bibtex-code"><code>@software{HajizadehMurshudovCarbox2026,
+  author    = {Hajizadeh, Suleiman M and Murshudov, Garib N},
   title     = {Carbox: Macromolecular Coordinate &amp; Geometry Calculation Engine for Carboxyl Microenvironments and Stereochemical Validation},
+  version   = {0.4.5},
   year      = {2026},
   url       = {https://project-carbox.github.io/}
 }</code></pre>
@@ -703,6 +775,13 @@
                                 <div>
                                     <strong>Documentation &amp; Manuals (Read the Docs)</strong>
                                     <span>Trilingual guides (EN, AZ, HE), Refinement Restraints &amp; Memoranda</span>
+                                </div>
+                            </a>
+                            <a href="manual/index.html" class="r-link">
+                                <i class="fa-solid fa-book"></i>
+                                <div>
+                                    <strong>Hosted Trilingual Manual &amp; CLI Reference</strong>
+                                    <span>Direct GitHub Pages documentation mirror (EN / AZ / HE) &bull; <a href="docs/" style="color:#38bdf8;">CLI Quick-Start</a></span>
                                 </div>
                             </a>
                             <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb" target="_blank" rel="noopener" class="r-link">
@@ -747,8 +826,8 @@
                 <img src="assets/carbox_logo.svg" alt="Carbox Logo" class="footer-logo" onerror="this.src='assets/carbox_logo.png'">
                 <div>
                     <div class="footer-brand">Carbox Platform &bull; Open Science &amp; Controlled Access</div>
-                    <div class="footer-copy">All rights reserved &copy; 2026 Suleiman M Hajizadeh.</div>
-                    <div class="footer-email">Private Data &amp; Access: <a href="mailto:suleyman.hacizade1@gmail.com">suleyman.hacizade1@gmail.com</a> &bull; <a href="https://project-carbox.readthedocs.io/en/latest/" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> Read the Docs</a></div>
+                    <div class="footer-copy">All rights reserved &copy; 2026 Suleiman M Hajizadeh &amp; Garib N Murshudov.</div>
+                    <div class="footer-email">Private Data &amp; Access: <a href="mailto:suleyman.hacizade1@gmail.com">suleyman.hacizade1@gmail.com</a> &bull; <a href="methodology/">Methodology</a> &bull; <a href="benchmarks/">Benchmarks</a> &bull; <a href="viewer/">3D Viewer</a> &bull; <a href="docs/">CLI Docs</a> &bull; <a href="manual/index.html">Full Manual</a> &bull; <a href="citation/">Citation</a></div>
                 </div>
             </div>
 
@@ -760,7 +839,8 @@
         </div>
     </footer>
 
-    <!-- App JavaScript -->
+    <!-- App & Real-Time SEO JavaScript -->
+    <script src="seo-engine.js" defer></script>
     <script src="app.js"></script>
 </body>
 </html>

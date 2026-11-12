@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API &mdash; Carbox Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+    <link rel="shortcut icon" href="../_static/carbox_logo.png"/>
+    <link rel="canonical" href="https://project-carbox.github.io/manual/he/carbox.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=340bb9e5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="סביבת העבודה CarboxMol — פקודות, קודים ואוטומציית מאקרו" href="carboxmol.html" />
+    <link rel="prev" title="תיעוד Carbox ו-CarboxMol (עברית)" href="index.html" />
+ 
+
+
+
+<!-- Senior/Architect-Level SEO & Search Engine Discovery Meta Tags -->
+<meta name="description" content="ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API — Carbox (v0.4.5): High-Throughput Macromolecular Crystallographic Validation, Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds (LBHB), and Dielectric Shielding by Suleiman M Hajizadeh &amp; Garib N Murshudov (MRC-LMB Cambridge &amp; IMB Baku)." />
+<meta name="keywords" content="Carbox, Project Carbox, ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API, Suleiman M Hajizadeh, Süleyman Hacızadə, Garib N Murshudov, Qərib Mürşüdov, Macromolecular Crystallography, Low-Barrier Hydrogen Bond, LBHB, Anomalous Carboxyl Protonation, Dielectric Shielding, REFMAC5, Servalcat, CCP4, Gemmi, PROPKA pKa Shift, Tukey IQR Outlier, Fisher Z RSCC, Electron Density Validation, PDB Screening, MRC LMB Cambridge, Western Caspian University, Institute of Molecular Biology, Structural Biology" />
+<meta name="author" content="Suleiman M Hajizadeh &amp; Garib N Murshudov" />
+<meta name="creator" content="Suleiman M Hajizadeh &amp; Garib N Murshudov" />
+<meta name="publisher" content="Project Carbox (MRC-LMB Cambridge &amp; IMB Baku)" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="geo.region" content="AZ-BA" />
+<meta name="geo.placename" content="Baku, Azerbaijan; Cambridge, United Kingdom" />
+<meta name="geo.position" content="40.4093;49.8671" />
+<meta name="ICBM" content="40.4093, 49.8671" />
+
+<!-- Canonical & Multilingual Alternates -->
+<link rel="alternate" hreflang="en" href="https://project-carbox.readthedocs.io/en/latest/he/carbox.html" />
+<link rel="alternate" hreflang="az" href="https://project-carbox.readthedocs.io/en/latest/he/carbox.html" />
+<link rel="alternate" hreflang="he" href="https://project-carbox.readthedocs.io/en/latest/he/carbox.html" />
+<link rel="alternate" hreflang="x-default" href="https://project-carbox.readthedocs.io/en/latest/he/carbox.html" />
+
+<!-- Open Graph (Facebook, LinkedIn, Slack, Telegram, WhatsApp) -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Project Carbox Documentation" />
+<meta property="og:title" content="ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API | Carbox Documentation (v0.4.5)" />
+<meta property="og:description" content="ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API — Official scientific documentation for Project Carbox by Suleiman M Hajizadeh &amp; Garib N Murshudov: macromolecular crystallographic validation, anomalous carboxyl protonation, Servalcat refinement, and LBHB discovery." />
+<meta property="og:url" content="https://project-carbox.readthedocs.io/en/latest/he/carbox.html" />
+<meta property="og:image" content="https://project-carbox.github.io/assets/og-image.png" />
+<meta property="og:image:alt" content="Project Carbox Macromolecular Crystallography Documentation" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="az_AZ" />
+<meta property="og:locale:alternate" content="he_IL" />
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@project_carbox" />
+<meta name="twitter:creator" content="@SuleimanHajizadeh" />
+<meta name="twitter:title" content="ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API | Carbox Documentation (v0.4.5)" />
+<meta name="twitter:description" content="ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API — Official scientific documentation for Project Carbox by Suleiman M Hajizadeh &amp; Garib N Murshudov." />
+<meta name="twitter:image" content="https://project-carbox.github.io/assets/og-image.png" />
+
+<!-- Schema.org JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://project-carbox.readthedocs.io/en/latest/he/carbox.html#article",
+      "headline": "ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API — Carbox Documentation (v0.4.5)",
+      "name": "ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API",
+      "description": "Official scientific documentation for Project Carbox: high-throughput macromolecular crystallographic validation, anomalous carboxyl protonation, Servalcat refinement, and Low-Barrier Hydrogen Bond (LBHB) discovery.",
+      "url": "https://project-carbox.readthedocs.io/en/latest/he/carbox.html",
+      "inLanguage": ["en", "az", "he"],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Suleiman M Hajizadeh",
+          "url": "https://project-carbox.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Garib N Murshudov",
+          "affiliation": "MRC Laboratory of Molecular Biology (LMB), Cambridge"
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Project Carbox",
+        "url": "https://project-carbox.github.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://project-carbox.github.io/assets/carbox_logo.png"
+        }
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Project Carbox",
+        "url": "https://project-carbox.github.io/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://project-carbox.readthedocs.io/en/latest/he/carbox.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Project Carbox Portal",
+          "item": "https://project-carbox.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Carbox Documentation",
+          "item": "https://project-carbox.readthedocs.io/en/latest/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API",
+          "item": "https://project-carbox.readthedocs.io/en/latest/he/carbox.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Carbox
+              <img src="../_static/carbox_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">English Documentation (en)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../en/index.html">Carbox &amp; CarboxMol Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../en/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../en/index.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/index.html#installing-from-source">Installing from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/index.html#verifying-installation">Verifying Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/index.html#references-citation-2026">References &amp; Citation (2026)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/index.html#bibtex">BibTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/index.html#documentation-contents">Documentation Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../en/carbox.html">Carbox Scientific Library — Commands, Codes &amp; API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#command-line-interface-cli">1. Command-Line Interface (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#supported-subcommands">Supported Subcommands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#command-carbox-analyze">2. Command: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">analyze</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#example-single-structure-analysis">Example: Single Structure Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../en/carbox.html#terminal-output-log">Terminal Output Log:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#example-bulk-screening-mode">Example: Bulk Screening Mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../en/carbox.html#options-reference">Options Reference:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#command-carbox-validate">3. Command: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">validate</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#id1">Terminal Output Log:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#quantum-proton-transfer-simulate-proton-transfer">4. Quantum Proton Transfer: <code class="docutils literal notranslate"><span class="pre">simulate_proton_transfer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#python-code-forward-reverse-ks-agiz-and-bidirectional-simulation">Python Code: Forward, Reverse (“Əks Ağız”), and Bidirectional Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#topological-graph-engine-carbox-graph">5. Topological Graph Engine: <code class="docutils literal notranslate"><span class="pre">carbox.graph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#python-code-constructing-molecular-networks-spring-layout">Python Code: Constructing Molecular Networks &amp; Spring Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carbox.html#carbox-refinement-carbox-refinement-external-restraints">6. Carbox Refinement &amp; Carbox Refinement External Restraints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#running-with-carbox-refinement">Running with Carbox Refinement:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/carbox.html#output-files-from-refinement">Output Files from Refinement:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../en/carboxmol.html">CarboxMol Workbench — Commands, Codes &amp; Macro Automation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#carboxmol-command-line-interface-cli">1. CarboxMol Command-Line Interface (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carboxmol.html#quick-commands">Quick Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#command-carboxmol-validate">2. Command: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">validate</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carboxmol.html#terminal-output-log">Terminal Output Log:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#command-carboxmol-metal">3. Command: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">metal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carboxmol.html#id1">Terminal Output Log:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#command-carboxmol-refine">4. Command: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">refine</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carboxmol.html#options">Options:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#python-api-in-object-atom-auditing">5. Python API: In-Object Atom Auditing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../en/carboxmol.html#cxl-macro-scripting-engine">6. CXL Macro Scripting Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/carboxmol.html#running-cxl-scripts-via-cli">Running CXL Scripts via CLI:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../en/restraints.html">Carbox Refinement Restraints Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../en/restraints.html#external-distance-restraints-syntax">1. External Distance Restraints Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/restraints.html#parameter-guidelines">Parameter Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/restraints.html#example-generated-restraints">Example Generated Restraints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/restraints.html#explicit-protonation-ash-and-glh-parameterization">2. Explicit Protonation: ASH and GLH Parameterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../en/restraints.html#running-with-carbox-refinement">3. Running with Carbox Refinement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/restraints.html#key-carbox-refinement-keywords">Key Carbox Refinement Keywords</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../en/citation.html">Citation &amp; References (2026)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../en/citation.html#primary-citation-2026">Primary Citation (2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../en/citation.html#formats">Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../en/citation.html#bibtex">BibTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/citation.html#apa-style-7th-edition">APA Style (7th Edition)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../en/citation.html#ris-endnote-mendeley-zotero">RIS (EndNote / Mendeley / Zotero)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../en/citation.html#related-references">Related References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Azərbaycan Sənədləşməsi (az)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../az/index.html">Carbox və CarboxMol Sənədləşmə Portalı</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../az/index.html#icmal">İcmal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/index.html#qurasdirma">Quraşdırma</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/index.html#tlblr">Tələblər</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../az/index.html#mnb-kodundan-qurasdirma">Mənbə Kodundan Quraşdırma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../az/index.html#qurasdirmanin-yoxlanilmasi">Quraşdırmanın Yoxlanılması</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/index.html#istinad-v-dbiyyat-2026">İstinad və Ədəbiyyat (2026)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/index.html#bibtex">BibTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/index.html#sndlsm-bolmlri">Sənədləşmə Bölmələri</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../az/carbox.html">Carbox Elmi Kitabxanası — Əmrlər, Kodlar və API Təlimatı</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#mr-stiri-interfeysi-cli">1. Əmr Sətiri İnterfeysi (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carbox.html#dstklnn-sas-mrlr">Dəstəklənən Əsas Əmrlər</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#mr-carbox-analyze">2. Əmr: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">analyze</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carbox.html#numun-tk-struktur-analizi">Nümunə: Tək Struktur Analizi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../az/carbox.html#terminal-cixis-loqu-terminal-output">Terminal Çıxış Loqu (Terminal Output):</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../az/carbox.html#parametrlr-cdvli">Parametrlər Cədvəli</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#mr-carbox-validate">3. Əmr: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">validate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#kvant-proton-oturulmsi-simulate-proton-transfer">4. Kvant Proton Ötürülməsi: <code class="docutils literal notranslate"><span class="pre">simulate_proton_transfer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carbox.html#python-kodu-duzun-ksin-ks-agiz-v-ikiistiqamtli-simulyasiya">Python Kodu: Düzünə, Əksinə (“Əks Ağız”) və İkiistiqamətli Simulyasiya</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#dogma-topoloji-qraf-muhrriki-carbox-graph">5. Doğma Topoloji Qraf Mühərriki: <code class="docutils literal notranslate"><span class="pre">carbox.graph</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carbox.html#carbox-refinement-v-carbox-refinement-inteqrasiyasi">6. Carbox Refinement və Carbox Refinement İnteqrasiyası</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../az/carboxmol.html">CarboxMol Modelləşdirmə Mühiti — Əmrlər, Kodlar və Makrolar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#carboxmol-mr-stiri-interfeysi-cli">1. CarboxMol Əmr Sətiri İnterfeysi (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carboxmol.html#cld-mrlr">Cəld Əmrlər</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#mr-carboxmol-validate">2. Əmr: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">validate</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carboxmol.html#terminal-cixis-loqu">Terminal Çıxış Loqu:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#mr-carboxmol-metal">3. Əmr: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">metal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/carboxmol.html#id1">Terminal Çıxış Loqu:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#mr-carboxmol-refine">4. Əmr: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">refine</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#python-api-atom-obyektindn-carbox-auditi">5. Python API: Atom Obyektindən Carbox Auditi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/carboxmol.html#cxl-makro-skript-muhrriki">6. CXL Makro Skript Mühərriki</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../az/restraints.html">Carbox Refinement və Carbox Refinement Xarici Məhdudiyyətləri İnteqrasiyası</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../az/restraints.html#xarici-msaf-mhdudiyytlri-sintaksisi">1. Xarici Məsafə Məhdudiyyətləri Sintaksisi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/restraints.html#parametr-tlimatlari">Parametr Təlimatları</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/restraints.html#askar-protonlasma-ash-v-glh-parametrlri">2. Aşkar Protonlaşma: ASH və GLH Parametrləri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/restraints.html#carbox-refinement-il-icra">3. Carbox Refinement ilə İcra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../az/citation.html">İstinad və Elmi Ədəbiyyat (2026)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../az/citation.html#sas-istinad-2026">Əsas İstinad (2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../az/citation.html#formatlar">Formatlar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../az/citation.html#bibtex">BibTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../az/citation.html#apa-uslubu-7-ci-nsr">APA Üslubu (7-ci Nəşr)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../az/citation.html#ris-endnote-mendeley-zotero">RIS (EndNote / Mendeley / Zotero)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../az/citation.html#laqli-dbiyyat">Əlaqəli Ədəbiyyat</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">תיעود עברית (he)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">תיעוד Carbox ו-CarboxMol (עברית)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">סקירה כללית</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">התקנה</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">דרישות קדם</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id4">התקנה מקוד המקור</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">ציטוט מדעי רשמי (2026)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#bibtex">פורמט BibTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id6">תוכן עניינים ומדריכים</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cli">1. ממשק שורת הפקודה (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">פקודות משנה מרכזיות</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#carbox-analyze">2. פקודה: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">analyze</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">דוגמה: ניתוח מבנה יחיד</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#terminal-output">פלט מסוף לדוגמה (Terminal Output):</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">טבלת פרמטרים ואפשרויות</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#carbox-validate">3. פקודה: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">validate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulate-proton-transfer">4. העברת פרוטון קוונטית: <code class="docutils literal notranslate"><span class="pre">simulate_proton_transfer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python">קוד Python: סימולציה קדימה, אחורה (“פיות הפוכות”) ודו-כיווני</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#carbox-graph">5. מנוע גרפים טופולוגי: <code class="docutils literal notranslate"><span class="pre">carbox.graph</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#carbox-refinement-carbox-refinement">6. שילוב עם Carbox Refinement ו-Carbox Refinement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carboxmol.html">סביבת העבודה CarboxMol — פקודות, קודים ואוטומציית מאקרו</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#cli">1. ממשק שורת הפקודה (CLI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="carboxmol.html#id1">פקודות נפוצות</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#carboxmol-validate">2. פקודה: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">validate</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="carboxmol.html#id2">פלט מסוף לדוגמה:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#carboxmol-metal">3. פקודה: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">metal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="carboxmol.html#id3">פלט מסוף לדוגמה:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#carboxmol-refine">4. פקודה: <code class="docutils literal notranslate"><span class="pre">carboxmol</span> <span class="pre">refine</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#python-api">5. ממשק תכנות Python API: ביקורת אטום ישירה</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carboxmol.html#cxl">6. שפת מאקרו CXL לאוטומציה של מחקר</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="restraints.html">שילוב אילוצי עידון חיצוניים עם Carbox Refinement ו-Carbox Refinement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="restraints.html#id1">1. תחביר אילוצי מרחק חיצוניים</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="restraints.html#id2">הנחיות פרמטרים</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="restraints.html#ash-glh">2. פרוטונציה מפורשת: ASH ו-GLH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restraints.html#carbox-refinement">3. הרצה ב-Carbox Refinement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">ציטוט מדעי והפניות מחקר (2026)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="citation.html#id2">ציטוט ראשי (2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation.html#id3">פורמטים להעתקה</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="citation.html#bibtex">פורמט BibTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="citation.html#apa">פורמט APA (מהדורה שביעית)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="citation.html#ris-endnote-mendeley-zotero">פורמט RIS (EndNote / Mendeley / Zotero)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="citation.html#id4">הפניות מחקר קשורות</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Manuals &amp; Memoranda</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html">CARBOX &amp; CARBOXMOL: THE DEFINITIVE MONOGRAPH &amp; TECHNICAL REFERENCE MANUAL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#author-developer">Author &amp; Developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#scientific-inspiration-theoretical-foundation">Scientific Inspiration &amp; Theoretical Foundation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#table-of-contents">TABLE OF CONTENTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#prolegomena-executive-summary">1. PROLEGOMENA &amp; EXECUTIVE SUMMARY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#biophysical-foundations-the-carboxylatecarboxylate-microenvironment">2. BIOPHYSICAL FOUNDATIONS: THE CARBOXYLATE–CARBOXYLATE MICROENVIRONMENT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-acidic-amino-acid-sidechains-aspartate-and-glutamate">2.1 The Acidic Amino Acid Sidechains: Aspartate and Glutamate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-paradox-of-ultra-short-carboxylcarboxyl-contacts">2.2 The Paradox of Ultra-Short Carboxyl–Carboxyl Contacts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#energetics-of-electrostatic-repulsion-vs-hydrogen-bonding">2.3 Energetics of Electrostatic Repulsion vs. Hydrogen Bonding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#low-barrier-hydrogen-bonds-lbhbs-vs-standard-hydrogen-bonds">2.4 Low-Barrier Hydrogen Bonds (LBHBs) vs. Standard Hydrogen Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#potential-energy-surfaces-single-well-low-barrier-double-well-asymmetric-double-well">2.5 Potential Energy Surfaces: Single-Well, Low-Barrier Double-Well, Asymmetric Double-Well</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#microenvironmental-pka-perturbations-dielectric-desolvation-burial">2.6 Microenvironmental pKa Perturbations: Dielectric Desolvation &amp; Burial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#enzymatic-catalysis-serine-proteases-aspartic-peptidases-and-glycosidases">2.7 Enzymatic Catalysis: Serine Proteases, Aspartic Peptidases, and Glycosidases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-carbox-validation-axiom-crystallographic-integrity">3. THE CARBOX VALIDATION AXIOM &amp; CRYSTALLOGRAPHIC INTEGRITY</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-carbox-validation-principle">3.1 The Carbox Validation Principle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#atomic-displacement-parameters-b-factors-physical-meaning-artifacts">3.2 Atomic Displacement Parameters (B-factors): Physical Meaning &amp; Artifacts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#positional-uncertainty-coordinate-error-estimation">3.3 Positional Uncertainty &amp; Coordinate Error Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#tukey-non-parametric-iqr-whisker-filtering">3.4 Tukey Non-Parametric IQR Whisker Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#normalization-fisher-z-transformation-of-b-factor-distributions">3.5 Normalization &amp; Fisher Z-Transformation of B-Factor Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#decontaminating-the-929-anomaly-dataset-eliminating-false-positive-surface-clashes">3.6 Decontaminating the 929-Anomaly Dataset: Eliminating False-Positive Surface Clashes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#experimental-electron-density-cryo-em-coulomb-potential-interpretation">4. EXPERIMENTAL ELECTRON DENSITY &amp; CRYO-EM COULOMB POTENTIAL INTERPRETATION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-phase-problem-fourier-summation">4.1 The Phase Problem &amp; Fourier Summation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#synthesis-and-interpretation-of-2fo-fc-maps">4.2 Synthesis and Interpretation of 2Fo - Fc Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#diagnostic-value-of-fo-fc-difference-maps">4.3 Diagnostic Value of Fo - Fc Difference Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#binary-ccp4-map-architecture-header-fields-space-groups-and-mode-conversion">4.4 Binary CCP4 Map Architecture: Header Fields, Space Groups, and Mode Conversion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-mode-0-decompression-bug-in-webgl-engines">The Mode 0 Decompression Bug in WebGL Engines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#root-mean-square-rms-scaling-sigma-contour-levels">4.5 Root Mean Square (RMS) Scaling &amp; <span class="math notranslate nohighlight">\(\sigma\)</span>-Contour Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#cryo-em-coulomb-potential-vs-x-ray-electron-density">4.6 Cryo-EM Coulomb Potential vs. X-ray Electron Density</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#metal-ion-coordination-bridging-carboxylate-architecture">5. METAL ION COORDINATION &amp; BRIDGING CARBOXYLATE ARCHITECTURE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#divalent-trivalent-metal-ions-in-macromolecules">5.1 Divalent &amp; Trivalent Metal Ions in Macromolecules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#carboxylate-coordination-modes-monodentate-bidentate-bridging">5.2 Carboxylate Coordination Modes: Monodentate, Bidentate, Bridging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#geometric-criteria-for-metal-site-identification">5.3 Geometric Criteria for Metal Site Identification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#resolving-apparent-carboxyl-clashes-mediated-by-light-or-disordered-metals">5.4 Resolving Apparent Carboxyl Clashes Mediated by Light or Disordered Metals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#mathematical-foundations-computational-algorithms">6. MATHEMATICAL FOUNDATIONS &amp; COMPUTATIONAL ALGORITHMS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#coordinate-orthogonalization-fractional-transformations">6.1 Coordinate Orthogonalization &amp; Fractional Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#vector-distance-bond-angle-and-torsion-angle-mathematics">6.2 Vector Distance, Bond Angle, and Torsion Angle Mathematics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#euclidean-distance">Euclidean Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#bond-angle">Bond Angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#torsion-dihedral-angle">Torsion / Dihedral Angle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#fast-spatial-search-algorithms-kd-trees-and-bounding-volumes">6.3 Fast Spatial Search Algorithms: KD-Trees and Bounding Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#d-density-profile-extraction-along-interatomic-axes">6.4 1D Density Profile Extraction Along Interatomic Axes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-core-engine-architecture-carbox-package">7. THE CORE ENGINE ARCHITECTURE: <code class="docutils literal notranslate"><span class="pre">carbox/</span></code> PACKAGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#architectural-overview-data-flow">7.1 Architectural Overview &amp; Data Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#core-py-foundational-primitives-geometric-analysis">7.2 <code class="docutils literal notranslate"><span class="pre">core.py</span></code>: Foundational Primitives &amp; Geometric Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#graph-py-graph-theoretical-network-analysis">7.3 <code class="docutils literal notranslate"><span class="pre">graph.py</span></code>: Graph-Theoretical Network Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#criteria-py-implementation-of-carbox-validation-criteria">7.4 <code class="docutils literal notranslate"><span class="pre">criteria.py</span></code>: Implementation of Carbox Validation Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#pka-py-empirical-pka-calculation-engine">7.5 <code class="docutils literal notranslate"><span class="pre">pka.py</span></code>: Empirical pKa Calculation Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#protonation-py-protonation-modeling-pes-simulation">7.6 <code class="docutils literal notranslate"><span class="pre">protonation.py</span></code>: Protonation Modeling &amp; PES Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#refinement-py-automated-restraint-generation-for-carbox-refinement-cryo-em-engine">7.7 <code class="docutils literal notranslate"><span class="pre">refinement.py</span></code>: Automated Restraint Generation for Carbox Refinement &amp; Cryo-EM Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#suspicious-atom-py-multi-criteria-atom-auditor">7.8 <code class="docutils literal notranslate"><span class="pre">suspicious_atom.py</span></code>: Multi-Criteria Atom Auditor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#zeta-density-py-density-sampling-gemmi-bridge">7.9 <code class="docutils literal notranslate"><span class="pre">zeta_density.py</span></code>: Density Sampling &amp; Gemmi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#ligands-py-ligand-interaction-profiling">7.10 <code class="docutils literal notranslate"><span class="pre">ligands.py</span></code>: Ligand Interaction Profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#fetch-py-universal-multi-source-structure-map-retrieval">7.11 <code class="docutils literal notranslate"><span class="pre">fetch.py</span></code>: Universal Multi-Source Structure &amp; Map Retrieval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#cli-py-command-line-interface-pipeline-orchestration">7.12 <code class="docutils literal notranslate"><span class="pre">cli.py</span></code>: Command-Line Interface &amp; Pipeline Orchestration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-crystallographic-workbench-engine-carboxmol-package">8. THE CRYSTALLOGRAPHIC WORKBENCH ENGINE: <code class="docutils literal notranslate"><span class="pre">carboxmol/</span></code> PACKAGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#architecture-design-principles-the-carboxmol-crystallographic-engine">8.1 Architecture &amp; Design Principles: The CarboxMol Crystallographic Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#subsystem-breakdown">8.2 Subsystem Breakdown</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#core-process-management-environment-setup"><code class="docutils literal notranslate"><span class="pre">core/</span></code>: Process Management &amp; Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#model-molecular-hierarchies-selection-algebra"><code class="docutils literal notranslate"><span class="pre">model/</span></code>: Molecular Hierarchies &amp; Selection Algebra</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#view-3d-scene-composition-camera-systems"><code class="docutils literal notranslate"><span class="pre">view/</span></code>: 3D Scene Composition &amp; Camera Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#qtgui-graphical-user-interface-components-inspector-decks"><code class="docutils literal notranslate"><span class="pre">qtgui/</span></code>: Graphical User Interface Components &amp; Inspector Decks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#scripting-crystallographic-scripting-macro-execution"><code class="docutils literal notranslate"><span class="pre">scripting/</span></code>: Crystallographic Scripting &amp; Macro Execution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#wrappers-external-program-execution-wrappers"><code class="docutils literal notranslate"><span class="pre">wrappers/</span></code>: External Program Execution Wrappers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#lib-monomer-dictionaries-restraint-templates"><code class="docutils literal notranslate"><span class="pre">lib/</span></code>: Monomer Dictionaries &amp; Restraint Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-cxl-scripting-language-syntax-parser-execution">8.3 The CXL Scripting Language: Syntax, Parser &amp; Execution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#formal-cxl-command-grammar">Formal CXL Command Grammar:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#example-cxl-macro">Example CXL Macro:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#automated-restraint-injection-refinement-pipeline">8.4 Automated Restraint Injection &amp; Refinement Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#the-modern-web-platform-studio-webapp-and-public">9. THE MODERN WEB PLATFORM &amp; STUDIO: <code class="docutils literal notranslate"><span class="pre">webapp/</span></code> AND <code class="docutils literal notranslate"><span class="pre">public/</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#zero-dependency-vanilla-architecture">9.1 Zero-Dependency Vanilla Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#high-performance-3d-scene-graph-carboxmol-webgl-integration">9.2 High-Performance 3D Scene Graph (CarboxMol WebGL Integration)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#real-time-density-engine-mode-0-decompression-dual-mesh-generation">9.3 Real-Time Density Engine: Mode 0 Decompression &amp; Dual-Mesh Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#precision-trackpad-mouse-gesture-engine">9.4 Precision Trackpad &amp; Mouse Gesture Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#carboxmol-density-contour-scroll-mode-d-shortcut">1. CarboxMol Density Contour Scroll Mode (<code class="docutils literal notranslate"><span class="pre">D</span></code> Shortcut)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#mac-trackpad-continuous-velocity-normalization">2. Mac Trackpad Continuous Velocity Normalization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#global-modifier-overrides">3. Global Modifier Overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#direct-deck-slider-and-floating-hud-interaction">4. Direct Deck, Slider, and Floating HUD Interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#d-density-profile-visualizer">9.5 1D Density Profile Visualizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#interactive-refinement-suite-carbox-refinement-suite">9.6 Interactive Refinement Suite: Carbox Refinement Suite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#trilingual-internationalization-engine-en-az-he-rtl-typography">9.7 Trilingual Internationalization Engine (EN, AZ, HE) &amp; RTL Typography</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#exhaustive-directory-by-directory-master-catalog">10. EXHAUSTIVE DIRECTORY-BY-DIRECTORY MASTER CATALOG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#root-directory-files">10.1 Root Directory Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#agents">10.2 <code class="docutils literal notranslate"><span class="pre">.agents/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#carbox-the-core-engine">10.3 <code class="docutils literal notranslate"><span class="pre">carbox/</span></code> (The Core Engine)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#carboxmol-the-desktop-crystallographic-workbench">10.4 <code class="docutils literal notranslate"><span class="pre">carboxmol/</span></code> (The Desktop Crystallographic Workbench)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#docs-documentation-portal">10.5 <code class="docutils literal notranslate"><span class="pre">docs/</span></code> (Documentation Portal)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#examples">10.6 <code class="docutils literal notranslate"><span class="pre">examples/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#output">10.7 <code class="docutils literal notranslate"><span class="pre">output/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#public">10.8 <code class="docutils literal notranslate"><span class="pre">public/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#scripts">10.9 <code class="docutils literal notranslate"><span class="pre">scripts/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#tests">10.10 <code class="docutils literal notranslate"><span class="pre">tests/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#webapp-carbox-web-studio">10.11 <code class="docutils literal notranslate"><span class="pre">webapp/</span></code> (Carbox Web Studio)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#legal-licensing-copyright-open-source-compliance">11. LEGAL, LICENSING, COPYRIGHT &amp; OPEN-SOURCE COMPLIANCE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#mozilla-public-license-2-0-mpl-2-0-architecture">11.1 Mozilla Public License 2.0 (MPL-2.0) Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#authorship-attribution-academic-moral-rights">11.2 Authorship Attribution &amp; Academic Moral Rights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#open-source-crystallographic-ecosystem-standards">11.3 Open-Source Crystallographic Ecosystem &amp; Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#statement-of-non-infringement-ethical-integrity">11.4 Statement of Non-Infringement &amp; Ethical Integrity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_MASTER_MANUAL.html#bibliography-comprehensive-scientific-references">12. BIBLIOGRAPHY &amp; COMPREHENSIVE SCIENTIFIC REFERENCES</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html">CARBOX CRYSTALLOGRAPHIC AUDIT &amp; VALIDATION MEMORANDUM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#scientific-protocol-for-the-classification-of-sub-angstrom-carboxyl-carboxyl-interactions-low-barrier-hydrogen-bonds-lbhb-and-crystallographic-artifacts">Scientific Protocol for the Classification of Sub-Ångström Carboxyl-Carboxyl Interactions, Low-Barrier Hydrogen Bonds (LBHB), and Crystallographic Artifacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#introduction-and-methodological-rationale">1. Introduction and Methodological Rationale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#six-stage-crystallographic-validation-criteria">2. Six-Stage Crystallographic Validation Criteria</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-i-geometric-distance-van-der-waals-boundary">2.1. Stage I: Geometric Distance &amp; Van der Waals Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-ii-strict-atomic-occupancy-law-q-1-00">2.2. Stage II: Strict Atomic Occupancy Law (<span class="math notranslate nohighlight">\(q = 1.00\)</span>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-iii-thermal-b-factor-distribution-vibrational-coupling">2.3. Stage III: Thermal B-factor Distribution &amp; Vibrational Coupling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-iv-real-space-2mf-o-df-c-electron-density-fisher-z-analysis">2.4. Stage IV: Real-Space <span class="math notranslate nohighlight">\(2mF_o - DF_c\)</span> Electron Density &amp; Fisher Z Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-v-transition-and-divalent-metal-coordination-filter">2.5. Stage V: Transition and Divalent Metal Coordination Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#stage-vi-native-electrostatic-text-p-k-a-perturbation-crystallization-ph-paradox">2.6. Stage VI: Native Electrostatic <span class="math notranslate nohighlight">\(\text{p}K_a\)</span> Perturbation &amp; Crystallization pH Paradox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#false-positive-artifact-taxonomy">3. False-Positive Artifact Taxonomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#benchmark-validation-across-16-high-resolution-structures">4. Benchmark Validation Across 16 High-Resolution Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#key-conclusion">Key Conclusion:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html#meeting-protocol-key-theses-for-prof-garib-murshudov">5. Meeting Protocol (Key Theses for Prof. Garib Murshudov)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html">CARBOX KRİSTALLOQRAFİK AUDİT VƏ DOĞRULAMA MEMORANDUMU</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#sub-angstrom-rezolyusiyali-karboksil-karboksil-qarsiliqli-tsirlrinin-asagi-baryerli-hidrogen-rabitlrinin-lbhb-v-kristalloqrafik-artefaktlarin-tsnifati-uzr-elmi-protokol">Sub-Ångström Rezolyusiyalı Karboksil-Karboksil Qarşılıqlı Təsirlərinin, Aşağı Baryerli Hidrogen Rabitələrinin (LBHB) və Kristalloqrafik Artefaktların Təsnifatı Üzrə Elmi Protokol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#giris-v-metodoloji-zrurt">1. Giriş və Metodoloji Zərurət</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#alti-pillli-kristalloqrafik-dogrulama-meyarlari">2. Altı Pilləli Kristalloqrafik Doğrulama Meyarları</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-i-hndsi-msaf-v-van-der-vaals-hddi">2.1. Pillə I: Həndəsi Məsafə və Van der Vaals Həddi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-ii-srt-atomik-doluluq-qanunu-strict-occupancy-q-1-00">2.2. Pillə II: Sərt Atomik Doluluq Qanunu (Strict Occupancy <span class="math notranslate nohighlight">\(q = 1.00\)</span>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-iii-termal-b-faktor-paylanmasi-v-vibrasion-laq">2.3. Pillə III: Termal B-faktor Paylanması və Vibrasion Əlaqə</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-iv-real-space-2mf-o-df-c-elektron-sixligi-v-fisher-z-thlili">2.4. Pillə IV: Real-Space <span class="math notranslate nohighlight">\(2mF_o - DF_c\)</span> Elektron Sıxlığı və Fisher Z Təhlili</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-v-kecid-v-ikivalentli-metal-ionlari-koordinasiya-suzgci">2.5. Pillə V: Keçid və İkivalentli Metal İonları Koordinasiya Süzgəci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#pill-vi-nativ-elektrostatik-text-p-k-a-perturbasiyasi-v-kristallasma-ph-paradoksu">2.6. Pillə VI: Nativ Elektrostatik <span class="math notranslate nohighlight">\(\text{p}K_a\)</span> Perturbasiyası və Kristallaşma pH Paradoksu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#saxta-musbt-artefaktlarin-tsnifat-agaci-taxonomy">3. Saxta-Müsbət Artefaktların Təsnifat Ağacı (Taxonomy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#qizil-standart-benchmark-nticlri">4. 16 Qızıl Standart Benchmark Nəticələri</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#sas-ntic">Əsas Nəticə:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html#gorus-protokolu-prof-qrib-mursudov-ucun-sas-tezislr">5. Görüş Protokolu (Prof. Qərib Mürşüdov üçün Əsas Tezislər)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html">מזכר ביקורת ואימות קריסטלוגרפי של CARBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#lbhb">פרוטוקול מדעי לסיווג אינטראקציות קרבוקסיל-קרבוקסיל ברזולוציית תת-אנגסטרום, קשרי מימן נמוכי-מחסום (LBHB) וארטיפקטים קריסטלוגרפיים</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id1">1. מבוא והצדקה מתודולוגית</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id2">2. ששת שלבי קריטריוני האימות הקריסטלוגרפיים</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#i">2.1. שלב I: מרחק גיאומטרי וגבול ואן דר ואלס</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#ii-strict-occupancy-q-1-00">2.2. שלב II: חוק תפוסה אטומית מחמיר (Strict Occupancy <span class="math notranslate nohighlight">\(q = 1.00\)</span>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#iii-b">2.3. שלב III: התפלגות פקטור B תרמי וצימוד ויברציוני</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#iv-2mf-o-df-c-fisher-z">2.4. שלב IV: צפיפות אלקטרונים <span class="math notranslate nohighlight">\(2mF_o - DF_c\)</span> וטרנספורמציית Fisher Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#v">2.5. שלב V: מסנן קואורדינציית יוני מתכת מעבר ומתכות דו-ערכיות</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#vi-text-p-k-a-ph">2.6. שלב VI: חישוב נייטיב להפרעת <span class="math notranslate nohighlight">\(\text{p}K_a\)</span> ופרדוקס ה-pH בקריסטליזציה</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id3">3. טקסונומיית ארטיפקטים חיוביים-שגויים</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id4">4. תוצאות בנצ’מרק של 16 מבני תקן זהב</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id5">מסקנה מרכזית:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html#id6">5. פרוטוקול פגישה (נקודות מפתח לפרופ’ גריב מורשודוב)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Carbox</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/he/carbox.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="carbox-api">
+<h1>ספריית Carbox המדעית — פקודות, קודים וממשק תכנות API<a class="headerlink" href="#carbox-api" title="Link to this heading"></a></h1>
+<p><strong>Carbox</strong> היא ספריית מחשוב מדעית ייעודית לקריסטלוגרפיה מקרו-מולקולרית ברזולוציה גבוהה. מסמך זה מספק מדריך מקיף לכל פקודות שורת הפקודה (CLI), הפרמטרים, פלטי המסוף, דוגמאות קוד Python והניסוחים המתמטיים.</p>
+<hr class="docutils" />
+<section id="cli">
+<h2>1. ממשק שורת הפקודה (CLI)<a class="headerlink" href="#cli" title="Link to this heading"></a></h2>
+<p>תחביר השימוש הכללי:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>carbox<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+<p>להצגת רשימת פקודות המשנה הנתמכות או עזרה עבור פקודה ספציפית:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>carbox<span class="w"> </span>--help
+$<span class="w"> </span>carbox<span class="w"> </span>&lt;command&gt;<span class="w"> </span>-h
+</pre></div>
+</div>
+<section id="id1">
+<h3>פקודות משנה מרכזיות<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">analyze</span></code></strong>: ניתוח מבנה PDB יחיד או סריקה מסיבית על גבי מאות מבנים.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">validate</span></code></strong>: ביקורת אטומים חשודים והפקת אילוצי מרחק עבור Carbox Refinement.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">refine</span></code></strong>: עידון ורגולריזציה גיאומטרית של מגעים קרבוקסיליים חריגים.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ligands</span></code></strong>: סריקת קרבוקסילטים של ליגנדים (HETATM) מול שיירי Asp/Glu.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plot</span></code></strong>: הפקת גרפי פיזור והתפלגות באיכות פרסום (300 DPI).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pdblist</span></code></strong>: משיכת רשימת מבנים ברזולוציה גבוהה מ-RCSB API v2.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">density</span></code></strong>: דגימת מפות צפיפות אלקטרונים (2Fo-Fc / Fo-Fc) וניתוח פיק פרוטון.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">macro</span></code></strong>: הפקת סקריפט מאקרו אוטומטי <code class="docutils literal notranslate"><span class="pre">.CXL</span></code> עבור CarboxMol.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">serve</span></code></strong>: הפעלת שרת ה-API וסטודיו ה-WebGL המקומי.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="carbox-analyze">
+<h2>2. פקודה: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">analyze</span></code><a class="headerlink" href="#carbox-analyze" title="Link to this heading"></a></h2>
+<p>מנתחת קובץ PDB/mmCIF יחיד או מבצעת סריקה רחבה:</p>
+<section id="id2">
+<h3>דוגמה: ניתוח מבנה יחיד<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>carbox<span class="w"> </span>analyze<span class="w"> </span>-p<span class="w"> </span>4LGN<span class="w"> </span>--max-distance<span class="w"> </span><span class="m">3</span>.20<span class="w"> </span>--water-burial<span class="w"> </span><span class="m">3</span>.00<span class="w"> </span>--verbose
+</pre></div>
+</div>
+<section id="terminal-output">
+<h4>פלט מסוף לדוגמה (Terminal Output):<a class="headerlink" href="#terminal-output" title="Link to this heading"></a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>==============================================================
+  Carbox – Anomalous Carboxyl Contact Analysis
+  Version 0.4.5
+  Mode: Single PDB Analysis | Target: 4LGN
+==============================================================
+
+[*] Loading mmCIF coordinate file: 4LGN
+[+] Structure parsed successfully:
+    - Macromolecule : HIV-1 Protease
+    - Resolution    : 1.45 Å
+    - Space Group   : P 21 21 21
+    - Total Chains  : 2 (A, B)
+    - Total Atoms   : 1,642
+
+[*] Screening Asp and Glu carboxylate oxygens (OD1, OD2, OE1, OE2)...
+[*] KD-Tree spatial indexing initialized (Cutoff d_OO ≤ 3.20 Å)...
+
+[+] Found 1 anomalous carboxyl contact:
+----------------------------------------------------------------------
+  Pair ID           : 4LGN_A25_B25
+  Residue 1         : Chain A | ASP 25 (OD2)
+  Residue 2         : Chain B | ASP 25' (OD2)
+  Distance (d_OO)   : 2.452 Å
+  Water Burial (dw) : 4.120 Å (קבור לחלוטין בליבת האתר הפעיל)
+  Local Dielectric  : eps_eff = 2.65
+  pKa Perturbation  : Delta pKa = +4.85 (ערך pKa מחושב: 8.75)
+  Verdict           : BURIED_LBHB (קשר מימן בעל מחסום נמוך)
+  State Assignment  : פרוטון א-סימטרי יחיד (ASH 25 / ASP 25')
+  Carbox Metric  : Delta(C-O) = 0.082 Å (אימות קבוצת הידרוקסיל מפורטת)
+  Quantum PES Barrier: 0.78 kcal/mol (קריסה מתחת ל-ZPE = 3.35 kcal/mol)
+----------------------------------------------------------------------
+
+[+] Suggested Carbox Refinement Restraint:
+    exte dist first resi 25 chain A atom OD2 second resi 25 chain B atom OD2 value 2.452 sigma 0.02
+
+[+] Execution completed in 0.042 seconds.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h3>טבלת פרמטרים ואפשרויות<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>אפשרות</p></th>
+<th class="head text-left"><p>סוג</p></th>
+<th class="head text-left"><p>ברירת מחדל</p></th>
+<th class="head text-left"><p>תיאור</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-p</span></code>, <code class="docutils literal notranslate"><span class="pre">--pdb</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td class="text-left"><p>קוד PDB בארבע אותיות (למשל <code class="docutils literal notranslate"><span class="pre">4LGN</span></code>) או נתיב לקובץ <code class="docutils literal notranslate"><span class="pre">.cif</span></code> / <code class="docutils literal notranslate"><span class="pre">.pdb</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--limit</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td class="text-left"><p>מספר המבנים לסריקה רחבה מ-RCSB.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--resolution</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">2.00</span></code></p></td>
+<td class="text-left"><p>סף רזולוציית קריסטלוגרפיה מקסימלי באנגסטרום (<span class="math notranslate nohighlight">\(\text{Å}\)</span>).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--max-distance</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">3.20</span></code></p></td>
+<td class="text-left"><p>סף מרחק מקסימלי בין חמצני קרבוקסיל <span class="math notranslate nohighlight">\(d_{O\cdots O}\)</span> (<span class="math notranslate nohighlight">\(\text{Å}\)</span>).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--water-burial</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">3.00</span></code></p></td>
+<td class="text-left"><p>מרחק למי הגביש הקרובים ביותר (<span class="math notranslate nohighlight">\(d_w\)</span>) לסיווג קבורה בממס.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--min-occupancy</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1.00</span></code></p></td>
+<td class="text-left"><p>סף תפוסה אטומית לסינון קונפורמציות מפוצלות.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--exclude-metals</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">flag</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-left"><p>סינון חיוביים-כוזבים הנובעים מתיאום ליוני מתכת (<span class="math notranslate nohighlight">\(3.10\,\text{Å}\)</span>).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>, <code class="docutils literal notranslate"><span class="pre">--output</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td class="text-left"><p>נתיב לקובץ פלט בפורמט CSV או JSON.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="carbox-validate">
+<h2>3. פקודה: <code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">validate</span></code><a class="headerlink" href="#carbox-validate" title="Link to this heading"></a></h2>
+<p>ביקורת אטום יחיד במבנה לזיהוי התנגשויות סטריות, חריגות פקטור B והפקת אילוצי מרחק:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>carbox<span class="w"> </span>validate<span class="w"> </span>-p<span class="w"> </span>4LGN.cif<span class="w"> </span>--atom<span class="w"> </span><span class="s2">"A:25:OD2"</span><span class="w"> </span>--clash-cutoff<span class="w"> </span><span class="m">2</span>.40<span class="w"> </span>--out-restraints<span class="w"> </span>restraints.txt
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="simulate-proton-transfer">
+<h2>4. העברת פרוטון קוונטית: <code class="docutils literal notranslate"><span class="pre">simulate_proton_transfer</span></code><a class="headerlink" href="#simulate-proton-transfer" title="Link to this heading"></a></h2>
+<p>Carbox ממדלת את תנועת הפרוטון בין החמצנים באמצעות פוטנציאל מורס כפול מצומד:</p>
+<section id="python">
+<h3>קוד Python: סימולציה קדימה, אחורה (“פיות הפוכות”) ודו-כיווני<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">carbox.simulation.proton_transfer</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_proton_transfer</span>
+
+<span class="c1"># קואורדינטות אטומיות של חמצני הקרבוקסיל</span>
+<span class="n">coord_donor</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.12</span><span class="p">,</span> <span class="mf">14.50</span><span class="p">,</span> <span class="mf">22.30</span><span class="p">)</span>     <span class="c1"># Asp25 OD2</span>
+<span class="n">coord_acceptor</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.12</span><span class="p">,</span> <span class="mf">14.50</span><span class="p">,</span> <span class="mf">24.75</span><span class="p">)</span>  <span class="c1"># Glu102 OE2 (d = 2.45 Å)</span>
+
+<span class="c1"># 1. סימולציה קדימה (Asp25 -&gt; Glu102)</span>
+<span class="n">res_fwd</span> <span class="o">=</span> <span class="n">simulate_proton_transfer</span><span class="p">(</span>
+    <span class="n">coord1</span><span class="o">=</span><span class="n">coord_donor</span><span class="p">,</span>
+    <span class="n">coord2</span><span class="o">=</span><span class="n">coord_acceptor</span><span class="p">,</span>
+    <span class="n">donor_label</span><span class="o">=</span><span class="s2">"Asp25:OD2"</span><span class="p">,</span>
+    <span class="n">acceptor_label</span><span class="o">=</span><span class="s2">"Glu102:OE2"</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">"forward"</span><span class="p">,</span>
+    <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"מחסום אנרגיה קדימה :"</span><span class="p">,</span> <span class="n">res_fwd</span><span class="o">.</span><span class="n">barrier_height_kcal</span><span class="p">,</span> <span class="s2">"kcal/mol"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"משטר קשר מימן     :"</span><span class="p">,</span> <span class="n">res_fwd</span><span class="o">.</span><span class="n">hbond_regime</span><span class="p">)</span>
+
+<span class="c1"># 2. סימולציה בכיוון הפוך ("פיות הפוכות": Glu102 -&gt; Asp25)</span>
+<span class="c1"># החלפת פיות החמצן וחישוב מחסום האנרגיה ההפוך</span>
+<span class="n">res_rev</span> <span class="o">=</span> <span class="n">simulate_proton_transfer</span><span class="p">(</span>
+    <span class="n">coord1</span><span class="o">=</span><span class="n">coord_donor</span><span class="p">,</span>
+    <span class="n">coord2</span><span class="o">=</span><span class="n">coord_acceptor</span><span class="p">,</span>
+    <span class="n">donor_label</span><span class="o">=</span><span class="s2">"Asp25:OD2"</span><span class="p">,</span>
+    <span class="n">acceptor_label</span><span class="o">=</span><span class="s2">"Glu102:OE2"</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">"reverse"</span><span class="p">,</span>
+    <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"מחסום אנרגיה הפוך   :"</span><span class="p">,</span> <span class="n">res_rev</span><span class="o">.</span><span class="n">barrier_height_kcal</span><span class="p">,</span> <span class="s2">"kcal/mol"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"הסתברות מנהור       :"</span><span class="p">,</span> <span class="n">res_rev</span><span class="o">.</span><span class="n">tunneling_probability</span><span class="p">)</span>
+
+<span class="c1"># 3. סימולציה דו-כיוונית של תנועת הלוך-חזור</span>
+<span class="n">res_bidi</span> <span class="o">=</span> <span class="n">simulate_proton_transfer</span><span class="p">(</span>
+    <span class="n">coord1</span><span class="o">=</span><span class="n">coord_donor</span><span class="p">,</span>
+    <span class="n">coord2</span><span class="o">=</span><span class="n">coord_acceptor</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">"bidirectional"</span><span class="p">,</span>
+    <span class="n">num_steps</span><span class="o">=</span><span class="mi">40</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"נקודות במסלול התנועה:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_bidi</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="carbox-graph">
+<h2>5. מנוע גרפים טופולוגי: <code class="docutils literal notranslate"><span class="pre">carbox.graph</span></code><a class="headerlink" href="#carbox-graph" title="Link to this heading"></a></h2>
+<p>קוד Python עצמאי לחלוטין לבניית רשתות מולקולריות וחישוב פריסה מרחבית:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">carbox.graph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cg</span>
+
+<span class="c1"># יצירת גרף מגעים לא-מכוון</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">MolecularGraph</span><span class="p">()</span>
+
+<span class="c1"># הוספת שיירים ומשקולות מרחק</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"Asp25"</span><span class="p">,</span> <span class="n">resn</span><span class="o">=</span><span class="s2">"ASP"</span><span class="p">,</span> <span class="n">chain</span><span class="o">=</span><span class="s2">"A"</span><span class="p">,</span> <span class="n">pka</span><span class="o">=</span><span class="mf">8.75</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"Asp25_prime"</span><span class="p">,</span> <span class="n">resn</span><span class="o">=</span><span class="s2">"ASP"</span><span class="p">,</span> <span class="n">chain</span><span class="o">=</span><span class="s2">"B"</span><span class="p">,</span> <span class="n">pka</span><span class="o">=</span><span class="mf">3.90</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"Thr26"</span><span class="p">,</span> <span class="n">resn</span><span class="o">=</span><span class="s2">"THR"</span><span class="p">,</span> <span class="n">chain</span><span class="o">=</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"Wat501"</span><span class="p">,</span> <span class="n">resn</span><span class="o">=</span><span class="s2">"HOH"</span><span class="p">,</span> <span class="n">chain</span><span class="o">=</span><span class="s2">"A"</span><span class="p">)</span>
+
+<span class="c1"># הוספת קשתות מגע</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"Asp25"</span><span class="p">,</span> <span class="s2">"Asp25_prime"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">2.45</span><span class="p">,</span> <span class="n">interaction</span><span class="o">=</span><span class="s2">"LBHB"</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"Asp25"</span><span class="p">,</span> <span class="s2">"Thr26"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">2.85</span><span class="p">,</span> <span class="n">interaction</span><span class="o">=</span><span class="s2">"H-bond"</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"Thr26"</span><span class="p">,</span> <span class="s2">"Wat501"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">2.72</span><span class="p">,</span> <span class="n">interaction</span><span class="o">=</span><span class="s2">"Solvation"</span><span class="p">)</span>
+
+<span class="c1"># 1. מציאת מסלול קצר ביותר (דייקסטרה)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">"Asp25_prime"</span><span class="p">,</span> <span class="s2">"Wat501"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"weight"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"נתיב חוט הפרוטונים:"</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># 2. מדדי מרכזיות</span>
+<span class="n">deg_cent</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">degree_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"מרכזיות דרגה:"</span><span class="p">,</span> <span class="n">deg_cent</span><span class="p">)</span>
+
+<span class="c1"># 3. זיהוי מעגלים מינימליים</span>
+<span class="n">cycles</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">cycle_basis</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"מעגלים וטבעות שזוהו:"</span><span class="p">,</span> <span class="n">cycles</span><span class="p">)</span>
+
+<span class="c1"># 4. פריסת קפיצים דו-ממדית (Fruchterman-Reingold)</span>
+<span class="n">layout_coords</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">layout_coords</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"צומת </span><span class="si">{</span><span class="n">node</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2"> -&gt; קואורדינטת פריסה: (</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="carbox-refinement-carbox-refinement">
+<h2>6. שילוב עם Carbox Refinement ו-Carbox Refinement<a class="headerlink" href="#carbox-refinement-carbox-refinement" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>carbox<span class="w"> </span>refine<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--model<span class="w"> </span>model.cif<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--hklin<span class="w"> </span>data.mtz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--restraints<span class="w"> </span>carbox_restraints.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--hydrogen<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ncycle<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>refined_carbox
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="תיעוד Carbox ו-CarboxMol (עברית)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="carboxmol.html" class="btn btn-neutral float-right" title="סביבת העבודה CarboxMol — פקודות, קודים ואוטומציית מאקרו" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Suleiman M Hajizadeh &amp; Garib N Murshudov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

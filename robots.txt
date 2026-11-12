@@ -1,19 +1,23 @@
 # Robots.txt for Project Carbox (https://project-carbox.github.io/)
-# Principal Architecture Search Engine Directives
+# Senior/Architect Search Engine Directives — Suleiman M Hajizadeh & Garib N Murshudov
 
 User-agent: *
 Allow: /
+Allow: /methodology/
+Allow: /benchmarks/
+Allow: /viewer/
+Allow: /docs/
+Allow: /citation/
+Allow: /manual/
 Allow: /assets/
 Allow: /index.html
 Allow: /styles.css
 Allow: /app.js
+Allow: /seo-engine.js
 
 # Prevent indexing hidden files or source control
 Disallow: /.git/
 Disallow: /.github/
-
-# Crawl-delay recommendation (polite indexing)
-Crawl-delay: 1
 
 # XML Sitemap Location
 Sitemap: https://project-carbox.github.io/sitemap.xml
