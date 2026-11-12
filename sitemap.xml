@@ -1,193 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- 1. Primary Portal Root -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://project-carbox.github.io/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://project-carbox.github.io/manual/en/index.html" />
-    <xhtml:link rel="alternate" hreflang="az" href="https://project-carbox.github.io/manual/az/index.html" />
-    <xhtml:link rel="alternate" hreflang="he" href="https://project-carbox.github.io/manual/he/index.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://project-carbox.github.io/" />
-    <image:image>
-      <image:loc>https://project-carbox.github.io/assets/og-image.png</image:loc>
-      <image:title>Project Carbox — Macromolecular Crystallography &amp; LBHB Discovery</image:title>
-      <image:caption>Structural Identification of Anomalous Carboxyl Protonation States &amp; Low-Barrier Hydrogen Bonds by Suleiman M Hajizadeh &amp; Garib N Murshudov</image:caption>
-    </image:image>
   </url>
-
-  <!-- 2. Prof. Garib Murshudov's 4-Stage & 6-Stage Methodology -->
   <url>
     <loc>https://project-carbox.github.io/methodology/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- 3. Golden Validated LBHB Benchmarks (1KZK, 1OEW, 2DSX, 1FKN, 4ZM7) -->
   <url>
     <loc>https://project-carbox.github.io/benchmarks/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- 4. Interactive 3D WebGL Macromolecular Showcase -->
   <url>
     <loc>https://project-carbox.github.io/viewer/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- 5. Official CLI & API Documentation Hub -->
   <url>
     <loc>https://project-carbox.github.io/docs/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- 6. Citation & Controlled Private Data Access Protocol -->
   <url>
     <loc>https://project-carbox.github.io/citation/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- 7. Hosted Trilingual Sphinx Manual Root -->
   <url>
     <loc>https://project-carbox.github.io/manual/index.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- 8. Master Manuals & Crystallographic Validation Memoranda (EN, AZ, HE) -->
   <url>
     <loc>https://project-carbox.github.io/manual/CARBOX_MASTER_MANUAL.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/CARBOX_KRISTALLOQRAFIK_DOGRVLAMA_MEMORANDUMU.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/CARBOX_CRYSTALLOGRAPHIC_VALIDATION_MEMORANDUM_HE.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- 9. English Documentation Chapters -->
   <url>
     <loc>https://project-carbox.github.io/manual/en/index.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/en/carbox.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/en/carboxmol.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/en/restraints.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/en/citation.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- 10. Azerbaijani Documentation Chapters -->
   <url>
     <loc>https://project-carbox.github.io/manual/az/index.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/az/carbox.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/az/carboxmol.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/az/restraints.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/az/citation.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- 11. Hebrew Documentation Chapters -->
   <url>
     <loc>https://project-carbox.github.io/manual/he/index.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/he/carbox.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/he/carboxmol.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/he/restraints.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/he/citation.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
 </urlset>
