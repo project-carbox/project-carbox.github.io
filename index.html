@@ -355,19 +355,28 @@
 
             <div class="nav-actions">
                 <a href="https://project-carbox.readthedocs.io/en/latest/" target="_blank" rel="noopener" class="btn btn-docs-nav">
-                    <i class="fa-solid fa-book-open"></i> Read the Docs
+                    <i class="fa-solid fa-book-open"></i> <span>Read the Docs</span>
                 </a>
                 <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb" target="_blank" rel="noopener" class="btn btn-colab">
-                    <i class="fa-solid fa-play"></i> Run Colab
+                    <i class="fa-solid fa-play"></i> <span>Run Colab</span>
                 </a>
                 <a href="mailto:suleyman.hacizade1@gmail.com?subject=Access%20Request%20-%20Project%20Carbox%20Private%20Data%20%26%20Repository" class="btn btn-access-nav">
-                    <i class="fa-solid fa-lock"></i> Request Access
+                    <i class="fa-solid fa-lock"></i> <span>Request Access</span>
                 </a>
                 <a href="https://github.com/project-carbox/carbox" target="_blank" rel="noopener" class="btn btn-github">
-                    <i class="fa-brands fa-github"></i> GitHub
+                    <i class="fa-brands fa-github"></i> <span>GitHub</span>
                 </a>
             </div>
         </div>
+        <nav class="mobile-nav-strip" aria-label="Mobile Section Navigation">
+            <a href="#vision" class="mobile-nav-pill"><i class="fa-solid fa-compass"></i> Mission</a>
+            <a href="#methodology" class="mobile-nav-pill"><i class="fa-solid fa-layer-group"></i> 4-Stage Protocol</a>
+            <a href="#viewer" class="mobile-nav-pill"><i class="fa-solid fa-cube"></i> 3D Case Studies</a>
+            <a href="#benchmarks" class="mobile-nav-pill"><i class="fa-solid fa-table-list"></i> Benchmarks</a>
+            <a href="#citation" class="mobile-nav-pill"><i class="fa-solid fa-book-bookmark"></i> Citation</a>
+            <a href="docs/" class="mobile-nav-pill"><i class="fa-solid fa-terminal"></i> CLI Docs</a>
+            <a href="manual/index.html" class="mobile-nav-pill"><i class="fa-solid fa-book"></i> Manual</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -771,17 +780,28 @@
 
                 <div class="citation-grid">
                     <div class="citation-card">
-                        <div class="citation-header">
-                            <span>BibTeX Reference</span>
-                            <button class="btn-copy" id="btn-copy-bibtex"><i class="fa-regular fa-copy"></i> Copy BibTeX</button>
-                        </div>
-                        <pre class="code-block" id="bibtex-code"><code>@software{HajizadehMurshudovCarbox2026,
+                        <div>
+                            <div class="citation-header">
+                                <span><i class="fa-solid fa-quote-left" style="color:var(--accent-cyan);margin-right:6px;"></i> BibTeX Reference</span>
+                                <button class="btn-copy" id="btn-copy-bibtex"><i class="fa-regular fa-copy"></i> Copy BibTeX</button>
+                            </div>
+                            <pre class="code-block" id="bibtex-code"><code>@software{HajizadehMurshudovCarbox2026,
   author    = {Hajizadeh, Suleiman M and Murshudov, Garib N},
   title     = {Carbox: Macromolecular Coordinate &amp; Geometry Calculation Engine for Carboxyl Microenvironments and Stereochemical Validation},
   version   = {0.4.5},
   year      = {2026},
   url       = {https://project-carbox.github.io/}
 }</code></pre>
+                        </div>
+                        <div class="citation-meta-box">
+                            <div class="citation-meta-row">
+                                <span><strong>Authors:</strong> Suleiman M Hajizadeh &amp; Prof. Garib N Murshudov</span>
+                                <span><strong>Release:</strong> v0.4.5 &bull; MPL-2.0 License</span>
+                            </div>
+                            <div class="citation-meta-sub">
+                                Institute of Molecular Biology (AZ) &bull; Western Caspian University &bull; MRC Laboratory of Molecular Biology (Cambridge, UK)
+                            </div>
+                        </div>
                     </div>
 
                     <div class="citation-links-card">
@@ -799,8 +819,15 @@
                             <a href="manual/index.html" class="r-link">
                                 <i class="fa-solid fa-book"></i>
                                 <div>
-                                    <strong>Hosted Trilingual Manual &amp; CLI Reference</strong>
-                                    <span>Direct GitHub Pages documentation mirror (EN / AZ / HE) &bull; <a href="docs/" style="color:#38bdf8;">CLI Quick-Start</a></span>
+                                    <strong>Hosted Trilingual Manual (EN / AZ / HE)</strong>
+                                    <span>Direct GitHub Pages documentation mirror &amp; validation memoranda</span>
+                                </div>
+                            </a>
+                            <a href="docs/" class="r-link">
+                                <i class="fa-solid fa-terminal"></i>
+                                <div>
+                                    <strong>CLI &amp; Python API Quick-Start Reference</strong>
+                                    <span>Command-line usage (carbox 4LGN, survey, validate) &amp; REFMAC5/Servalcat restraints</span>
                                 </div>
                             </a>
                             <a href="https://colab.research.google.com/github/project-carbox/carbox/blob/main/notebooks/Carbox_Garib_Murshudov_4Stages_Colab.ipynb" target="_blank" rel="noopener" class="r-link">
