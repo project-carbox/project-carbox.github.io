@@ -31,6 +31,7 @@
 
 <!-- Senior/Architect-Level SEO & Search Engine Discovery Meta Tags -->
 <meta name="google-site-verification" content="med3XHPJzcSjHLpdN-jmNKekn-MFZcQE8IwPeFbCk7o" />
+<meta name="google-site-verification" content="lbqn6nIPchEP3d12Vf4UQmQpyKhJ1Mzq-di2S-t3rF0" />
 <meta name="description" content="CARBOX &amp; CARBOXMOL: THE DEFINITIVE MONOGRAPH &amp; TECHNICAL REFERENCE MANUAL — Carbox (v0.4.5): High-Throughput Macromolecular Crystallographic Validation, Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds (LBHB), and Dielectric Shielding by Suleiman M Hajizadeh &amp; Garib N Murshudov (MRC-LMB Cambridge &amp; IMB Baku)." />
 <meta name="keywords" content="Carbox, Project Carbox, CARBOX &amp; CARBOXMOL: THE DEFINITIVE MONOGRAPH &amp; TECHNICAL REFERENCE MANUAL, Suleiman M Hajizadeh, Süleyman Hacızadə, Garib N Murshudov, Qərib Mürşüdov, Macromolecular Crystallography, Low-Barrier Hydrogen Bond, LBHB, Anomalous Carboxyl Protonation, Dielectric Shielding, REFMAC5, Servalcat, CCP4, Gemmi, PROPKA pKa Shift, Tukey IQR Outlier, Fisher Z RSCC, Electron Density Validation, PDB Screening, MRC LMB Cambridge, Western Caspian University, Institute of Molecular Biology, Structural Biology" />
 <meta name="author" content="Suleiman M Hajizadeh &amp; Garib N Murshudov" />
@@ -526,7 +527,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#exhaustive-directory-by-directory-master-catalog">10. EXHAUSTIVE DIRECTORY-BY-DIRECTORY MASTER CATALOG</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#root-directory-files">10.1 Root Directory Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#agents">10.2 <code class="docutils literal notranslate"><span class="pre">.agents/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#carbox-the-core-engine">10.3 <code class="docutils literal notranslate"><span class="pre">carbox/</span></code> (The Core Engine)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#carboxmol-the-desktop-crystallographic-workbench">10.4 <code class="docutils literal notranslate"><span class="pre">carboxmol/</span></code> (The Desktop Crystallographic Workbench)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docs-documentation-portal">10.5 <code class="docutils literal notranslate"><span class="pre">docs/</span></code> (Documentation Portal)</a></li>
@@ -1791,7 +1791,6 @@ immediately adjusts density contour levels without requiring canvas focus.</p></
 <h2>10. EXHAUSTIVE DIRECTORY-BY-DIRECTORY MASTER CATALOG<a class="headerlink" href="#exhaustive-directory-by-directory-master-catalog" title="Link to this heading"></a></h2>
 <p>This chapter provides a comprehensive, rigorous catalog of every single directory, subdirectory, and foundational file across the entire Carbox repository.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Carbox/
-├── .agents/                    (Antigravity custom skills &amp; workflow rules)
 ├── carbox/                     (Core Python high-throughput &amp; validation engine)
 ├── carboxmol/                  (Desktop crystallography workbench &amp; CXL bridge)
 │   ├── bin/                    (Platform-specific wrapper binaries)
@@ -1816,44 +1815,36 @@ immediately adjusts density contour levels without requiring canvas focus.</p></
 <section id="root-directory-files">
 <h3>10.1 Root Directory Files<a class="headerlink" href="#root-directory-files" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>[pyproject.toml](file:///Users/macbookairm2/Documents/GitHub/Carbox/pyproject.toml): Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (<code class="docutils literal notranslate"><span class="pre">gemmi</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">propka</span></code>, <code class="docutils literal notranslate"><span class="pre">requests</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code>), CLI entrypoints (<code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">=</span> <span class="pre">carbox.cli:main</span></code>), and pytest settings.</p></li>
-<li><p>[setup.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/setup.py): Backward-compatible setuptools build script for legacy pip installations.</p></li>
-<li><p>[README.md](file:///Users/macbookairm2/Documents/GitHub/Carbox/README.md): Primary repository landing page featuring project description, badges, installation instructions, gallery, and citation information.</p></li>
-<li><p>[LICENSE](file:///Users/macbookairm2/Documents/GitHub/Carbox/LICENSE): Full text of the Mozilla Public License 2.0 (MPL-2.0).</p></li>
-<li><p>[CARBOX_MASTER_MANUAL.md](file:///Users/macbookairm2/Documents/GitHub/Carbox/CARBOX_MASTER_MANUAL.md): This master monograph.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="agents">
-<h3>10.2 <code class="docutils literal notranslate"><span class="pre">.agents/</span></code><a class="headerlink" href="#agents" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p><strong>Purpose:</strong> Custom configuration, rules, and skill definitions for autonomous AI agents (Google Antigravity IDE ecosystem).</p></li>
-<li><p><strong>Contents:</strong> Workspace customization metadata, pair-programming rules, and automated execution constraints ensuring coding standards and licensing integrity.</p></li>
+<li><p><a class="reference internal" href="#pyproject.toml"><span class="xref myst">pyproject.toml</span></a>: Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (<code class="docutils literal notranslate"><span class="pre">gemmi</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">propka</span></code>, <code class="docutils literal notranslate"><span class="pre">requests</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code>), CLI entrypoints (<code class="docutils literal notranslate"><span class="pre">carbox</span> <span class="pre">=</span> <span class="pre">carbox.cli:main</span></code>), and pytest settings.</p></li>
+<li><p><a class="reference internal" href="#setup.py"><span class="xref myst">setup.py</span></a>: Backward-compatible setuptools build script for legacy pip installations.</p></li>
+<li><p><a class="reference internal" href="#README.md"><span class="xref myst">README.md</span></a>: Primary repository landing page featuring project description, badges, installation instructions, gallery, and citation information.</p></li>
+<li><p><a class="reference internal" href="#LICENSE"><span class="xref myst">LICENSE</span></a>: Full text of the Mozilla Public License 2.0 (MPL-2.0).</p></li>
+<li><p><a class="reference internal" href="#"><span class="std std-doc">CARBOX_MASTER_MANUAL.md</span></a>: This master monograph.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="carbox-the-core-engine">
 <h3>10.3 <code class="docutils literal notranslate"><span class="pre">carbox/</span></code> (The Core Engine)<a class="headerlink" href="#carbox-the-core-engine" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>[<strong>init</strong>.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/<strong>init</strong>.py): Package initializer exposing top-level API functions and version metadata (<code class="docutils literal notranslate"><span class="pre">__version__</span> <span class="pre">=</span> <span class="pre">&quot;0.4.5&quot;</span></code>).</p></li>
-<li><p>[cli.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/cli.py): Complete command-line interface implementation using <code class="docutils literal notranslate"><span class="pre">argparse</span></code>. Subcommands include <code class="docutils literal notranslate"><span class="pre">scan</span></code>, <code class="docutils literal notranslate"><span class="pre">fetch</span></code>, <code class="docutils literal notranslate"><span class="pre">audit</span></code>, <code class="docutils literal notranslate"><span class="pre">refine</span></code>, and <code class="docutils literal notranslate"><span class="pre">batch</span></code>.</p></li>
-<li><p>[core.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/core.py): Fundamental geometry engine, atom data classes, KD-tree neighborhood search, and contact detection algorithms.</p></li>
-<li><p>[fetch.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/fetch.py): Universal structural data fetcher supporting RCSB PDB, PDBe, AlphaFold DB, and local file portal fallback.</p></li>
-<li><p>[graph.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/graph.py): Graph-theoretical clustering and network topology analysis of carboxylate interactions.</p></li>
-<li><p>[ligands.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/ligands.py): Small molecule, cofactor, and drug interaction analyzer for carboxylate binding pockets.</p></li>
-<li><p>[criteria.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/criteria.py): The Carbox Platform Validation Engine implementing Tukey non-parametric IQR outlier analysis and Fisher Z-score standardization.</p></li>
-<li><p>[pka.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/pka.py): Acid dissociation constant (<span class="math notranslate nohighlight">\(\text{p}K_a\)</span>) prediction engine integrating PROPKA and analytical burial calculations.</p></li>
-<li><p>[protonation.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/protonation.py): Proton placement geometry and 1D potential energy surface simulation.</p></li>
-<li><p>[refinement.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/refinement.py): Automatic restraint generator for Carbox Refinement and Cryo-EM Engines, including <code class="docutils literal notranslate"><span class="pre">MODRES</span></code> protonation records.</p></li>
-<li><p>[suspicious_atom.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/suspicious_atom.py): Deep atom auditing engine detecting steric clashes, B-factor anomalies, and insertion code inconsistencies.</p></li>
-<li><p>[zeta_density.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/zeta_density.py): Gemmi-powered electron density sampler, Fisher Z field computer, and difference peak evaluator.</p></li>
+<li><p><a class="reference internal" href="#carbox/__init__.py"><span class="xref myst"><strong>init</strong>.py</span></a>: Package initializer exposing top-level API functions and version metadata (<code class="docutils literal notranslate"><span class="pre">__version__</span> <span class="pre">=</span> <span class="pre">&quot;0.4.5&quot;</span></code>).</p></li>
+<li><p><a class="reference internal" href="#carbox/cli.py"><span class="xref myst">cli.py</span></a>: Complete command-line interface implementation using <code class="docutils literal notranslate"><span class="pre">argparse</span></code>. Subcommands include <code class="docutils literal notranslate"><span class="pre">scan</span></code>, <code class="docutils literal notranslate"><span class="pre">fetch</span></code>, <code class="docutils literal notranslate"><span class="pre">audit</span></code>, <code class="docutils literal notranslate"><span class="pre">refine</span></code>, and <code class="docutils literal notranslate"><span class="pre">batch</span></code>.</p></li>
+<li><p><a class="reference internal" href="#carbox/core.py"><span class="xref myst">core.py</span></a>: Fundamental geometry engine, atom data classes, KD-tree neighborhood search, and contact detection algorithms.</p></li>
+<li><p><a class="reference internal" href="#carbox/fetch.py"><span class="xref myst">fetch.py</span></a>: Universal structural data fetcher supporting RCSB PDB, PDBe, AlphaFold DB, and local file portal fallback.</p></li>
+<li><p><a class="reference internal" href="#carbox/graph.py"><span class="xref myst">graph.py</span></a>: Graph-theoretical clustering and network topology analysis of carboxylate interactions.</p></li>
+<li><p><a class="reference internal" href="#carbox/ligands.py"><span class="xref myst">ligands.py</span></a>: Small molecule, cofactor, and drug interaction analyzer for carboxylate binding pockets.</p></li>
+<li><p><a class="reference internal" href="#carbox/criteria.py"><span class="xref myst">criteria.py</span></a>: The Carbox Platform Validation Engine implementing Tukey non-parametric IQR outlier analysis and Fisher Z-score standardization.</p></li>
+<li><p><a class="reference internal" href="#carbox/pka.py"><span class="xref myst">pka.py</span></a>: Acid dissociation constant (<span class="math notranslate nohighlight">\(\text{p}K_a\)</span>) prediction engine integrating PROPKA and analytical burial calculations.</p></li>
+<li><p><a class="reference internal" href="#carbox/protonation.py"><span class="xref myst">protonation.py</span></a>: Proton placement geometry and 1D potential energy surface simulation.</p></li>
+<li><p><a class="reference internal" href="#carbox/refinement.py"><span class="xref myst">refinement.py</span></a>: Automatic restraint generator for Carbox Refinement and Cryo-EM Engines, including <code class="docutils literal notranslate"><span class="pre">MODRES</span></code> protonation records.</p></li>
+<li><p><a class="reference internal" href="#carbox/suspicious_atom.py"><span class="xref myst">suspicious_atom.py</span></a>: Deep atom auditing engine detecting steric clashes, B-factor anomalies, and insertion code inconsistencies.</p></li>
+<li><p><a class="reference internal" href="#carbox/zeta_density.py"><span class="xref myst">zeta_density.py</span></a>: Gemmi-powered electron density sampler, Fisher Z field computer, and difference peak evaluator.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="carboxmol-the-desktop-crystallographic-workbench">
 <h3>10.4 <code class="docutils literal notranslate"><span class="pre">carboxmol/</span></code> (The Desktop Crystallographic Workbench)<a class="headerlink" href="#carboxmol-the-desktop-crystallographic-workbench" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>[<strong>init</strong>.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carboxmol/<strong>init</strong>.py): Package initializer exposing workbench components.</p></li>
+<li><p><a class="reference internal" href="#carboxmol/__init__.py"><span class="xref myst"><strong>init</strong>.py</span></a>: Package initializer exposing workbench components.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">core/</span></code>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CARBOXMOLProcessManager.py</span></code>: Subprocess management, environment variable path configuration, and non-blocking execution of external crystallographic software.</p></li>
@@ -1902,8 +1893,8 @@ immediately adjusts density contour levels without requiring canvas focus.</p></
 <section id="docs-documentation-portal">
 <h3>10.5 <code class="docutils literal notranslate"><span class="pre">docs/</span></code> (Documentation Portal)<a class="headerlink" href="#docs-documentation-portal" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>[index.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/docs/index.html): Standalone, light-themed documentation portal covering all aspects of Carbox and CarboxMol.</p></li>
-<li><p>[downloads.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/docs/downloads.html): Dedicated downloads hub for standalone binaries, python wheels, and documentation artifacts.</p></li>
+<li><p><a class="reference internal" href="#docs/index.html"><span class="xref myst">index.html</span></a>: Standalone, light-themed documentation portal covering all aspects of Carbox and CarboxMol.</p></li>
+<li><p><a class="reference internal" href="#docs/downloads.html"><span class="xref myst">downloads.html</span></a>: Dedicated downloads hub for standalone binaries, python wheels, and documentation artifacts.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assets/</span></code>: Scalable vector graphics (SVG), logos, and branding assets (<code class="docutils literal notranslate"><span class="pre">docs_logo.svg</span></code>, <code class="docutils literal notranslate"><span class="pre">download_logo.svg</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">en/</span></code>, <code class="docutils literal notranslate"><span class="pre">az/</span></code>, <code class="docutils literal notranslate"><span class="pre">he/</span></code>: Language-specific documentation subportals.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CARBOX_MASTER_MANUAL.md</span></code>: Mirrored master reference manual.</p></li>
@@ -1973,15 +1964,15 @@ immediately adjusts density contour levels without requiring canvas focus.</p></
 <section id="webapp-carbox-web-studio">
 <h3>10.11 <code class="docutils literal notranslate"><span class="pre">webapp/</span></code> (Carbox Web Studio)<a class="headerlink" href="#webapp-carbox-web-studio" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>[index.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/index.html): Primary Dashboard landing page featuring PDB accession input, telemetry cards, and quick-analysis decks.</p></li>
-<li><p>[studio.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.html): The complete 3D Macromolecular Crystallography Studio interface.</p></li>
-<li><p>[downloads.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/downloads.html): Downloads hub for users to obtain standalone packages, manuals, and datasets.</p></li>
-<li><p>[studio.css](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.css): Deep Obsidian luxury stylesheet defining all desktop docks, viewport controls, and animations.</p></li>
-<li><p>[studio.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.js): Master Web Studio JavaScript engine (10,800+ lines): 3Dmol.js integration, Mode 0 decompression, CarboxMol precision gesture engine, HUD, and trilingual i18n.</p></li>
-<li><p>[app.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/app.js): Dashboard controller, telemetry visualizer, and search engine.</p></li>
-<li><p>[data.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/data.js): Curated pre-indexed database of verified carboxylate dyads.</p></li>
-<li><p>[structures.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/structures.js): High-throughput structure catalog metadata.</p></li>
-<li><p>[sw.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/sw.js): Progressive Web App (PWA) service worker enabling full offline caching.</p></li>
+<li><p><a class="reference internal" href="#webapp/index.html"><span class="xref myst">index.html</span></a>: Primary Dashboard landing page featuring PDB accession input, telemetry cards, and quick-analysis decks.</p></li>
+<li><p><a class="reference internal" href="#webapp/studio.html"><span class="xref myst">studio.html</span></a>: The complete 3D Macromolecular Crystallography Studio interface.</p></li>
+<li><p><a class="reference internal" href="#webapp/downloads.html"><span class="xref myst">downloads.html</span></a>: Downloads hub for users to obtain standalone packages, manuals, and datasets.</p></li>
+<li><p><a class="reference internal" href="#webapp/studio.css"><span class="xref myst">studio.css</span></a>: Deep Obsidian luxury stylesheet defining all desktop docks, viewport controls, and animations.</p></li>
+<li><p><a class="reference internal" href="#webapp/studio.js"><span class="xref myst">studio.js</span></a>: Master Web Studio JavaScript engine (10,800+ lines): 3Dmol.js integration, Mode 0 decompression, CarboxMol precision gesture engine, HUD, and trilingual i18n.</p></li>
+<li><p><a class="reference internal" href="#webapp/app.js"><span class="xref myst">app.js</span></a>: Dashboard controller, telemetry visualizer, and search engine.</p></li>
+<li><p><a class="reference internal" href="#webapp/data.js"><span class="xref myst">data.js</span></a>: Curated pre-indexed database of verified carboxylate dyads.</p></li>
+<li><p><a class="reference internal" href="#webapp/structures.js"><span class="xref myst">structures.js</span></a>: High-throughput structure catalog metadata.</p></li>
+<li><p><a class="reference internal" href="#webapp/sw.js"><span class="xref myst">sw.js</span></a>: Progressive Web App (PWA) service worker enabling full offline caching.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assets/</span></code>: High-resolution SVGs, icons, and diagrams.</p></li>
 </ul>
 </section>

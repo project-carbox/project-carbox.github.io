@@ -894,7 +894,6 @@ This chapter provides a comprehensive, rigorous catalog of every single director
 
 ```
 Carbox/
-├── .agents/                    (Antigravity custom skills & workflow rules)
 ├── carbox/                     (Core Python high-throughput & validation engine)
 ├── carboxmol/                  (Desktop crystallography workbench & CXL bridge)
 │   ├── bin/                    (Platform-specific wrapper binaries)
@@ -918,38 +917,32 @@ Carbox/
 ---
 
 ### 10.1 Root Directory Files
-* [pyproject.toml](file:///Users/macbookairm2/Documents/GitHub/Carbox/pyproject.toml): Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (`gemmi`, `numpy`, `scipy`, `propka`, `requests`, `pytest`, `pytest-cov`), CLI entrypoints (`carbox = carbox.cli:main`), and pytest settings.
-* [setup.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/setup.py): Backward-compatible setuptools build script for legacy pip installations.
-* [README.md](file:///Users/macbookairm2/Documents/GitHub/Carbox/README.md): Primary repository landing page featuring project description, badges, installation instructions, gallery, and citation information.
-* [LICENSE](file:///Users/macbookairm2/Documents/GitHub/Carbox/LICENSE): Full text of the Mozilla Public License 2.0 (MPL-2.0).
-* [CARBOX_MASTER_MANUAL.md](file:///Users/macbookairm2/Documents/GitHub/Carbox/CARBOX_MASTER_MANUAL.md): This master monograph.
-
----
-
-### 10.2 `.agents/`
-* **Purpose:** Custom configuration, rules, and skill definitions for autonomous AI agents (Google Antigravity IDE ecosystem).
-* **Contents:** Workspace customization metadata, pair-programming rules, and automated execution constraints ensuring coding standards and licensing integrity.
+* [pyproject.toml](pyproject.toml): Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (`gemmi`, `numpy`, `scipy`, `propka`, `requests`, `pytest`, `pytest-cov`), CLI entrypoints (`carbox = carbox.cli:main`), and pytest settings.
+* [setup.py](setup.py): Backward-compatible setuptools build script for legacy pip installations.
+* [README.md](README.md): Primary repository landing page featuring project description, badges, installation instructions, gallery, and citation information.
+* [LICENSE](LICENSE): Full text of the Mozilla Public License 2.0 (MPL-2.0).
+* [CARBOX_MASTER_MANUAL.md](CARBOX_MASTER_MANUAL.md): This master monograph.
 
 ---
 
 ### 10.3 `carbox/` (The Core Engine)
-* [__init__.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/__init__.py): Package initializer exposing top-level API functions and version metadata (`__version__ = "0.4.5"`).
-* [cli.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/cli.py): Complete command-line interface implementation using `argparse`. Subcommands include `scan`, `fetch`, `audit`, `refine`, and `batch`.
-* [core.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/core.py): Fundamental geometry engine, atom data classes, KD-tree neighborhood search, and contact detection algorithms.
-* [fetch.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/fetch.py): Universal structural data fetcher supporting RCSB PDB, PDBe, AlphaFold DB, and local file portal fallback.
-* [graph.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/graph.py): Graph-theoretical clustering and network topology analysis of carboxylate interactions.
-* [ligands.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/ligands.py): Small molecule, cofactor, and drug interaction analyzer for carboxylate binding pockets.
-* [criteria.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/criteria.py): The Carbox Platform Validation Engine implementing Tukey non-parametric IQR outlier analysis and Fisher Z-score standardization.
-* [pka.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/pka.py): Acid dissociation constant ($\text{p}K_a$) prediction engine integrating PROPKA and analytical burial calculations.
-* [protonation.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/protonation.py): Proton placement geometry and 1D potential energy surface simulation.
-* [refinement.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/refinement.py): Automatic restraint generator for Carbox Refinement and Cryo-EM Engines, including `MODRES` protonation records.
-* [suspicious_atom.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/suspicious_atom.py): Deep atom auditing engine detecting steric clashes, B-factor anomalies, and insertion code inconsistencies.
-* [zeta_density.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carbox/zeta_density.py): Gemmi-powered electron density sampler, Fisher Z field computer, and difference peak evaluator.
+* [__init__.py](carbox/__init__.py): Package initializer exposing top-level API functions and version metadata (`__version__ = "0.4.5"`).
+* [cli.py](carbox/cli.py): Complete command-line interface implementation using `argparse`. Subcommands include `scan`, `fetch`, `audit`, `refine`, and `batch`.
+* [core.py](carbox/core.py): Fundamental geometry engine, atom data classes, KD-tree neighborhood search, and contact detection algorithms.
+* [fetch.py](carbox/fetch.py): Universal structural data fetcher supporting RCSB PDB, PDBe, AlphaFold DB, and local file portal fallback.
+* [graph.py](carbox/graph.py): Graph-theoretical clustering and network topology analysis of carboxylate interactions.
+* [ligands.py](carbox/ligands.py): Small molecule, cofactor, and drug interaction analyzer for carboxylate binding pockets.
+* [criteria.py](carbox/criteria.py): The Carbox Platform Validation Engine implementing Tukey non-parametric IQR outlier analysis and Fisher Z-score standardization.
+* [pka.py](carbox/pka.py): Acid dissociation constant ($\text{p}K_a$) prediction engine integrating PROPKA and analytical burial calculations.
+* [protonation.py](carbox/protonation.py): Proton placement geometry and 1D potential energy surface simulation.
+* [refinement.py](carbox/refinement.py): Automatic restraint generator for Carbox Refinement and Cryo-EM Engines, including `MODRES` protonation records.
+* [suspicious_atom.py](carbox/suspicious_atom.py): Deep atom auditing engine detecting steric clashes, B-factor anomalies, and insertion code inconsistencies.
+* [zeta_density.py](carbox/zeta_density.py): Gemmi-powered electron density sampler, Fisher Z field computer, and difference peak evaluator.
 
 ---
 
 ### 10.4 `carboxmol/` (The Desktop Crystallographic Workbench)
-* [__init__.py](file:///Users/macbookairm2/Documents/GitHub/Carbox/carboxmol/__init__.py): Package initializer exposing workbench components.
+* [__init__.py](carboxmol/__init__.py): Package initializer exposing workbench components.
 * `core/`:
   * `CARBOXMOLProcessManager.py`: Subprocess management, environment variable path configuration, and non-blocking execution of external crystallographic software.
 * `model/`:
@@ -972,8 +965,8 @@ Carbox/
 ---
 
 ### 10.5 `docs/` (Documentation Portal)
-* [index.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/docs/index.html): Standalone, light-themed documentation portal covering all aspects of Carbox and CarboxMol.
-* [downloads.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/docs/downloads.html): Dedicated downloads hub for standalone binaries, python wheels, and documentation artifacts.
+* [index.html](docs/index.html): Standalone, light-themed documentation portal covering all aspects of Carbox and CarboxMol.
+* [downloads.html](docs/downloads.html): Dedicated downloads hub for standalone binaries, python wheels, and documentation artifacts.
 * `assets/`: Scalable vector graphics (SVG), logos, and branding assets (`docs_logo.svg`, `download_logo.svg`).
 * `en/`, `az/`, `he/`: Language-specific documentation subportals.
 * `CARBOX_MASTER_MANUAL.md`: Mirrored master reference manual.
@@ -1022,15 +1015,15 @@ Carbox/
 ---
 
 ### 10.11 `webapp/` (Carbox Web Studio)
-* [index.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/index.html): Primary Dashboard landing page featuring PDB accession input, telemetry cards, and quick-analysis decks.
-* [studio.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.html): The complete 3D Macromolecular Crystallography Studio interface.
-* [downloads.html](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/downloads.html): Downloads hub for users to obtain standalone packages, manuals, and datasets.
-* [studio.css](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.css): Deep Obsidian luxury stylesheet defining all desktop docks, viewport controls, and animations.
-* [studio.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/studio.js): Master Web Studio JavaScript engine (10,800+ lines): 3Dmol.js integration, Mode 0 decompression, CarboxMol precision gesture engine, HUD, and trilingual i18n.
-* [app.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/app.js): Dashboard controller, telemetry visualizer, and search engine.
-* [data.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/data.js): Curated pre-indexed database of verified carboxylate dyads.
-* [structures.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/structures.js): High-throughput structure catalog metadata.
-* [sw.js](file:///Users/macbookairm2/Documents/GitHub/Carbox/webapp/sw.js): Progressive Web App (PWA) service worker enabling full offline caching.
+* [index.html](webapp/index.html): Primary Dashboard landing page featuring PDB accession input, telemetry cards, and quick-analysis decks.
+* [studio.html](webapp/studio.html): The complete 3D Macromolecular Crystallography Studio interface.
+* [downloads.html](webapp/downloads.html): Downloads hub for users to obtain standalone packages, manuals, and datasets.
+* [studio.css](webapp/studio.css): Deep Obsidian luxury stylesheet defining all desktop docks, viewport controls, and animations.
+* [studio.js](webapp/studio.js): Master Web Studio JavaScript engine (10,800+ lines): 3Dmol.js integration, Mode 0 decompression, CarboxMol precision gesture engine, HUD, and trilingual i18n.
+* [app.js](webapp/app.js): Dashboard controller, telemetry visualizer, and search engine.
+* [data.js](webapp/data.js): Curated pre-indexed database of verified carboxylate dyads.
+* [structures.js](webapp/structures.js): High-throughput structure catalog metadata.
+* [sw.js](webapp/sw.js): Progressive Web App (PWA) service worker enabling full offline caching.
 * `assets/`: High-resolution SVGs, icons, and diagrams.
 
 ---
