@@ -19,7 +19,6 @@
 - **Suspicious atom audit (`carbox.validate_atom`)** with automated external distance restraints generation for REFMAC5, Servalcat, and Phenix.
 - **Native, zero-dependency topological graph engine (`carbox.graph`)** for macromolecular carboxyl network tracing.
 
-*(Note: For interactive 3D WebGL electron density visualization, real-time map carving, and molecular dynamics simulation, see the companion workbench **CarboxMol** at [https://carboxmol.readthedocs.io/](https://carboxmol.readthedocs.io/) or [https://carboxmol.github.io/](https://carboxmol.github.io/)).*
 
 ---
 

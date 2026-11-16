@@ -19,7 +19,6 @@
 - **ביקורת אטום חשוד (`carbox.validate_atom`)** והפקת אילוצי מרחק חיצוניים עבור REFMAC5, Servalcat ו-Phenix.
 - **מנוע גרפים טופולוגי עצמאי** ללא תלויות חיצוניות (`carbox.graph`).
 
-*(הערה: להדמיה תלת-ממדית, ניתוח צפיפות אלקטרונים בזמן אמת וסימולציות דינמיקה מולקולרית, ראה את חבילת העבודה הנפרדת **CarboxMol** בכתובת [https://carboxmol.readthedocs.io/](https://carboxmol.readthedocs.io/) או [https://carboxmol.github.io/](https://carboxmol.github.io/)).*
 
 ---
 

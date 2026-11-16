@@ -1,6 +1,6 @@
 # שילוב אילוצי עידון חיצוניים עם Carbox Refinement ו-Carbox Refinement
 
-חבילת **Carbox ו-CarboxMol** תוכננה מראש לפעולה חלקה ומדויקת מול מנועי הזיקוק המובילים בעולם: **Carbox Refinement** ו-**Carbox Refinement**.
+פלטפורמת **Carbox** תוכננה מראש לפעולה חלקה ומדויקת מול מנועי הזיקוק המובילים בעולם: **Carbox Refinement** ו-**Carbox Refinement**.
 
 ---
 

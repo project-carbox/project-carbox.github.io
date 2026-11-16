@@ -62,10 +62,10 @@
    - 7.10 `ligands.py`: Ligand Interaction Profiling
    - 7.11 `fetch.py`: Universal Multi-Source Structure & Map Retrieval
    - 7.12 `cli.py`: Command-Line Interface & Pipeline Orchestration
-8. [Interoperability & Integration with CarboxMol Workbench](#8-interoperability--integration-with-carboxmol-workbench)
+8. [Automated Restraint Generation & Refinement Pipeline (REFMAC5 & Servalcat)](#8-automated-restraint-generation--refinement-pipeline-refmac5--servalcat)
    - 8.1 Macro and Script Generation (.CXL)
-   - 8.2 Restraints and Coordinate Transfer
-   - 8.3 Companion 3D Workbench: CarboxMol
+   - 8.2 External Restraints Generation (REFMAC5 & Servalcat)
+   - 8.3 Validation Metrics & Real-Space Assessment
 9. [Exhaustive Directory-by-Directory Master Catalog](#9-exhaustive-directory-by-directory-master-catalog)
    - 9.1 Root Directory Files
    - 9.2 Core Engine (`carbox/`)
@@ -80,7 +80,7 @@
 
 ## 1. PROLEGOMENA & EXECUTIVE SUMMARY
 
-The **Carbox & CarboxMol Project** represents an exhaustive, rigorous computational biophysics and macromolecular crystallography suite dedicated to the discovery, validation, simulation, and refinement of anomalous carboxylate–carboxylate interactions in biological macromolecules.
+The **Carbox Project** represents an exhaustive, rigorous computational biophysics and macromolecular crystallography suite dedicated to the discovery, validation, simulation, and refinement of anomalous carboxylate–carboxylate interactions in biological macromolecules.
 
 For decades, structural biologists operating the Protein Data Bank (PDB) have confronted a perplexing phenomenon: hundreds of crystallographic models report pairs of acidic sidechains—Aspartate (Asp) and Glutamate (Glu)—whose carboxylate oxygen atoms reside at interatomic distances well below the sum of their van der Waals radii ($d(O\cdots O) < 3.20$ Å), in some cases reaching extreme distances of $2.20 - 2.50$ Å. Under classical physiological conditions at neutral pH (~7.4), both carboxyl groups are expected to be fully deprotonated and carry a formal negative charge ($-1e$). Bringing two unshielded negative charges to within $2.40$ Å incurs an immense electrostatic repulsion energy exceeding $+100\text{ kcal/mol}$.
 
@@ -93,8 +93,8 @@ The Carbox ecosystem was designed to bridge this divide through mathematical rig
 * The **Carbox Platform Validation Engine**, establishing statistical thresholds over atomic displacement parameters ($B$-factors) and local electron density to immediately separate true catalytic dyads from mobile loop artifacts.
 * A quantum potential energy surface (PES) simulator modeling the one-dimensional proton transfer coordinate between carboxyl oxygens.
 * An automated crystallographic restraint generator generating external distance, angle, and `MODRES` protonation records for modern refinement programs (**Carbox Refinement**, **Carbox Refinement**, and **Phenix**).
-* **CarboxMol Workbench**, a full-featured desktop crystallography workbench dedicated to high-resolution structural analysis, difference density visualization, and restraints modeling.
-* **Carbox Web Studio**, a state-of-the-art, zero-dependency browser workbench powered by CarboxMol WebGL, featuring real-time Mode 0 CCP4 map decompression, 1D density profiling, trilingual localization (English, Azerbaijani, Hebrew), and a CarboxMol precision gesture engine supporting Mac trackpads and discrete mouse wheels.
+* High-throughput structural screening and validation of anomalous carboxylate dyads across macromolecular crystal structures.
+* Automated stereochemical parameterization and restraint generation for REFMAC5 and Servalcat refinement engines.
 
 This monograph serves as the definitive reference manual for the entire codebase, its underlying physical theories, and its operational mechanics.
 
@@ -668,23 +668,24 @@ The `carbox/` package comprises eleven specialized computational biophysics modu
 
 ---
 
-## 8. INTEROPERABILITY & INTEGRATION WITH CARBOXMOL WORKBENCH
+## 8. AUTOMATED RESTRAINT GENERATION & REFINEMENT PIPELINE (REFMAC5 & SERVALCAT)
 
-Carbox serves as the high-throughput mathematical, biophysical, and crystallographic calculation engine. To facilitate visual inspection, real-time map carving, and molecular dynamics simulation, Carbox integrates seamlessly with the companion **CarboxMol Workbench**:
+Carbox serves as the high-throughput mathematical, biophysical, and crystallographic calculation engine. A central capability of Carbox is the automated generation of stereochemical restraint dictionaries for crystallographic and cryo-EM refinement:
 
 ### 8.1 Macro and Script Generation (.CXL)
 Carbox automatically produces Carbox eXtensible Language (`.cxl`) macro scripts via the `carbox macro` CLI command:
-* Centers the crystallographic viewport directly onto validated carboxylate dyads ($d_{O\cdots O} \le 3.20\,	ext{Å}$).
+* Centers crystallographic viewports directly onto validated carboxylate dyads ($d_{O\cdots O} \le 3.20\,\text{Å}$).
 * Automatically highlights active site donor and acceptor oxygens.
-* Issues map carving commands around the active site envelope (default $4.5\,	ext{Å}$ radius).
+* Issues map carving commands around the active site envelope (default $4.5\,\text{Å}$ radius).
 
-### 8.2 Restraints and Coordinate Transfer
-Restraint files generated by `carbox refine` (REFMAC5 `exte dist` records and Servalcat parameters) can be loaded directly into CarboxMol or any standard CCP4 refinement workflow to regularize anomalous protonation geometries.
+### 8.2 External Restraints Generation (REFMAC5 & Servalcat)
+Restraint files generated by `carbox refine` produce REFMAC5 `exte dist` records and Servalcat restraint dictionaries to regularize anomalous protonation geometries, Low-Barrier Hydrogen Bonds (LBHB), and explicit neutral carboxylate (ASH / GLH) sidechains without destabilizing surrounding protein architecture.
 
-### 8.3 Companion 3D Workbench: CarboxMol
-For interactive 3D WebGL electron density streaming, continuous trackpad-driven $\sigma$ adjustment, GROMACS simulation setups, and desktop GUI interaction, refer to the dedicated **CarboxMol** suite:
-* **CarboxMol Read the Docs:** [https://carboxmol.readthedocs.io/en/latest/](https://carboxmol.readthedocs.io/en/latest/)
-* **CarboxMol Web Portal:** [https://carboxmol.github.io/](https://carboxmol.github.io/)
+### 8.3 Validation Metrics & Real-Space Assessment
+Carbox couples atomic coordinate refinement with real-space validation metrics:
+* Real-space correlation coefficient (RSCC) evaluation against experimental $2F_o - F_c$ density maps.
+* Difference map ($\pm F_o - F_c$) peak minimization across the shared proton transfer path.
+* Fisher Z-score standardized B-factor distribution analysis to verify coordinate physical plausibility.
 
 ---
 
@@ -735,7 +736,7 @@ carbox/
 ## 10. LEGAL, LICENSING, COPYRIGHT & OPEN-SOURCE COMPLIANCE
 
 ### 10.1 Mozilla Public License 2.0 (MPL-2.0) Architecture
-The entire Carbox & CarboxMol project is licensed under the **Mozilla Public License, Version 2.0 (MPL-2.0)**.
+The entire Carbox project is licensed under the **Mozilla Public License, Version 2.0 (MPL-2.0)**.
 
 **Key Principles of MPL-2.0:**
 1. **Commercial & Academic Freedom:** Any individual, academic institution, or commercial entity is free to use, modify, distribute, or run the software without payment of royalties.
@@ -752,7 +753,7 @@ All academic papers, theses, posters, software distributions, or projects utiliz
 > *Suleiman M Hajizadeh (2026). Carbox: Macromolecular Coordinate & Geometry Calculation Engine for Carboxyl Microenvironments and Stereochemical Validation. Version 0.4.5.*
 
 ### 10.3 Open-Source Crystallographic Ecosystem & Standards
-Carbox and CarboxMol operate upon and harmonize with open-source structural biology libraries and standards:
+Carbox operates upon and harmonizes with open-source structural biology libraries and standards:
 1. **Macromolecular Crystallographic Formats:** High-precision parsing and handling of PDB, mmCIF, MTZ, and CCP4 map standards.
 2. **Computational Libraries:** Integration with high-performance numerical and structural biology modules (Gemmi, 3Dmol.js).
 3. **Refinement Interoperability:** Carbox X-Ray and Cryo-EM refinement parameter generation and model validation.
@@ -781,4 +782,4 @@ A thorough legal and intellectual property audit confirms that:
 12. **Olsson, M. H., Søndergaard, C. R., Rostkowski, M., & Jensen, J. H. (2011).** PROPKA3: consistent treatment of internal and surface residues in empirical pKa predictions. *Journal of Chemical Theory and Computation*, 7(2), 525–537.
 
 ---
-*End of Carbox & CarboxMol Definitive Master Manual (Release 0.4.5)*
+*End of Carbox Definitive Master Manual (Release 0.4.5)*

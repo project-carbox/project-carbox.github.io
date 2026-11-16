@@ -27,8 +27,8 @@ $ carbox <əmr> -h
 - **`plot`**: 300 DPI çap keyfiyyətli paylanma qrafiklərinin yaradılması.
 - **`pdblist`**: RCSB API-dən yüksək ayırdetməli PDB siyahısının çəkilməsi.
 - **`density`**: 2Fo-Fc / Fo-Fc elektron sıxlığı nümunələnməsi və proton piklərinin təhlili.
-- **`macro`**: CarboxMol üçün `.CXL` makro skriptinin generasiyası.
-- **`serve`**: Lokal CarboxMol WebGL Studiya və API serverinin işə salınması.
+- **`macro`**: `.CXL` makro skriptinin generasiyası.
+- **`serve`**: Lokal WebGL Studiya və API serverinin işə salınması.
 
 ---
 

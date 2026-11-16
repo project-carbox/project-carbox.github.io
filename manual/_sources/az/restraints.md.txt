@@ -1,6 +1,6 @@
 # Carbox Refinement və Carbox Refinement Xarici Məhdudiyyətləri İnteqrasiyası
 
-**Carbox və CarboxMol** paketinin başlıca elmi məqsədi dünya standartı olan **Carbox Refinement** və **Carbox Refinement** proqramları ilə birbaşa və maneəsiz inteqrasiyadır.
+**Carbox** platformasının başlıca elmi məqsədi dünya standartı olan **Carbox Refinement** və **Carbox Refinement** proqramları ilə birbaşa və maneəsiz inteqrasiyadır.
 
 ---
 

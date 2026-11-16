@@ -19,7 +19,7 @@
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
 
-    <!-- CarboxMol Purple Glow -->
+    <!-- Cyan/Blue Glow -->
     <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#c084fc"/>
       <stop offset="100%" stop-color="#e879f9"/>
@@ -53,7 +53,7 @@
   <!-- Quantum Proton in Center -->
   <circle cx="188" cy="269" r="10" fill="#facc15"/>
 
-  <!-- Right Side: CarboxMol 3D Molecular Coordination Polyhedron -->
+  <!-- Right Side: Molecular Coordination Polyhedron -->
   <!-- Central Metal/Carbon -->
   <polygon points="352,210 404,242 404,302 352,334 300,302 300,242" 
            fill="none" stroke="url(#purpleGrad)" stroke-width="6" stroke-linejoin="round"/>

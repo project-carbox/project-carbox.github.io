@@ -1,6 +1,6 @@
 # İstinad və Elmi Ədəbiyyat (2026)
 
-**Carbox** və ya **CarboxMol** paketindən istifadə edərək əldə etdiyiniz tədqiqat nəticələrini dərc edərkən zəhmət olmasa aşağıdakı nəşrə istinad edin:
+**Carbox**  paketindən istifadə edərək əldə etdiyiniz tədqiqat nəticələrini dərc edərkən zəhmət olmasa aşağıdakı nəşrə istinad edin:
 
 ---
 
@@ -8,7 +8,7 @@
 
 > **Suleiman M Hajizadeh & Garib N Murshudov (2026).**  
 > *Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Protein Crystal Structures.*  
-> **Carbox & CarboxMol Macromolecular Crystallography Suite**, v0.4.5.  
+> **Carbox Computational Structural Biology Platform**, v0.4.5.  
 > Carbox Hesablama Strukturlu Biologiya Platforması.
 
 ---
@@ -20,7 +20,7 @@
 @article{Carbox2026,
   author       = {Hajizadeh, Suleiman M and Murshudov, Garib N.},
   title        = {Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Protein Crystal Structures},
-  journal      = {Carbox & CarboxMol Macromolecular Crystallography Suite},
+  journal      = {Carbox Computational Structural Biology Platform},
   year         = {2026},
   publisher    = {Carbox Computational Structural Biology Platform},
   url          = {https://github.com/project-carbox/carbox},
@@ -29,7 +29,7 @@
 ```
 
 ### APA Üslubu (7-ci Nəşr)
-Suleiman M Hajizadeh & Garib N Murshudov (2026). *Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Protein Crystal Structures*. Carbox & CarboxMol Macromolecular Crystallography Suite. https://github.com/project-carbox/carbox
+Suleiman M Hajizadeh & Garib N Murshudov (2026). *Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Protein Crystal Structures*. Carbox Computational Structural Biology Platform. https://github.com/project-carbox/carbox
 
 ### RIS (EndNote / Mendeley / Zotero)
 ```text
@@ -37,7 +37,7 @@ TY  - JOUR
 AU  - Hajizadeh, Suleiman M
 AU  - Murshudov, Garib N.
 TI  - Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier Hydrogen Bonds, and Microenvironment Dielectric Shielding in High-Resolution Protein Crystal Structures
-T2  - Carbox & CarboxMol Macromolecular Crystallography Suite
+T2  - Carbox Computational Structural Biology Platform
 PY  - 2026
 UR  - https://github.com/project-carbox/carbox
 ER  - 

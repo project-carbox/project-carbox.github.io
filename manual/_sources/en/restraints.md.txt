@@ -1,6 +1,6 @@
 # Carbox Refinement Restraints Integration
 
-A primary design objective of the **Carbox & CarboxMol** suite is seamless interoperability with world-standard macromolecular refinement software, notably **Carbox Refinement** and **Carbox Refinement**.
+A primary design objective of the **Carbox** platform is seamless interoperability with world-standard macromolecular refinement software, notably **Carbox Refinement** and **Carbox Refinement**.
 
 ---
 

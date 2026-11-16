@@ -19,7 +19,6 @@
 - **Şübhəli atom auditi (`carbox.validate_atom`)** və REFMAC5, Servalcat və Phenix üçün avtomatik xarici məsafə məhdudiyyətləri (`exte dist`).
 - **Sıfır asılılıqlı, doğma topoqrafik qraf mühərriki (`carbox.graph`)**.
 
-*(Qeyd: İnteraktiv 3D WebGL elektron sıxlığı vizuallaşdırması, real-vaxt sıxlıq kəsimi və molekulyar dinamika simulyasiyası üçün ayrıca **CarboxMol** platformasına müraciət edin: [https://carboxmol.readthedocs.io/](https://carboxmol.readthedocs.io/) və ya [https://carboxmol.github.io/](https://carboxmol.github.io/)).*
 
 ---
 

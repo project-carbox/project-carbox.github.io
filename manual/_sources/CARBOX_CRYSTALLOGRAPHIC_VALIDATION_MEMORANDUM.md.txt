@@ -7,7 +7,7 @@
 > ¹Institute of Molecular Biology, Ministry of Science and Education of the Republic of Azerbaijan; Western Caspian University, Baku, Azerbaijan  
 > ²MRC Laboratory of Molecular Biology, Cambridge CB2 0QH, United Kingdom  
 > > **Document Purpose:**  
-> This scientific memorandum provides the comprehensive theoretical and empirical justification for the mathematical, crystallographic, and electrostatic filtering criteria implemented in **Carbox** and **CarboxMol**. Formulated in alignment with the crystallographic principles of Prof. Garib Murshudov (MRC LMB Cambridge / REFMAC5) and the experimental protocol of Suleiman M Hajizadeh.
+> This scientific memorandum provides the comprehensive theoretical and empirical justification for the mathematical, crystallographic, and electrostatic filtering criteria implemented in **Carbox**. Formulated in alignment with the crystallographic principles of Prof. Garib Murshudov (MRC LMB Cambridge / REFMAC5) and the experimental protocol of Suleiman M Hajizadeh.
 
 ---
 

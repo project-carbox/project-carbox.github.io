@@ -27,8 +27,8 @@ $ carbox <command> -h
 - **`plot`**: Generate publication-quality 300 DPI distribution plots and scatter charts.
 - **`pdblist`**: Query RCSB Search API v2 for structures matching resolution criteria.
 - **`density`**: Sample 2Fo-Fc / Fo-Fc electron density and evaluate proton peak heights.
-- **`macro`**: Generate a `.CXL` macro automation script for CarboxMol.
-- **`serve`**: Launch the local CarboxMol WebGL Studio and API server.
+- **`macro`**: Generate a `.CXL` macro automation script for crystallographic visualization.
+- **`serve`**: Launch the local WebGL Studio and API server.
 
 ---
 

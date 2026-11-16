@@ -7,7 +7,7 @@
 > ¹Azərbaycan Respublikası Elm və Təhsil Nazirliyi Molekulyar Biologiya İnstitutu; Qərbi Kaspi Universiteti, Bakı, Azərbaycan  
 > ²MRC Molekulyar Biologiya Laboratoriyası, Kembric CB2 0QH, Böyük Britaniya  
 > > **Sənədin Təyinatı:**  
-> Bu elmi memorandum **Carbox** və **CarboxMol** platformalarında tətbiq edilən riyazi, kristalloqrafik və elektrostatik filtrasiya meyarlarının tam elmi əsaslandırmasını təqdim edir. Sənəd Prof. Qərib Mürşüdovun (MRC LMB Cambridge / REFMAC5) kristalloqrafik prinsipləri və Süleyman Hacızadənin (Suleiman M Hajizadeh) tədqiqat protokolu əsasında hazırlanmışdır.
+> Bu elmi memorandum **Carbox** platformasında tətbiq edilən riyazi, kristalloqrafik və elektrostatik filtrasiya meyarlarının tam elmi əsaslandırmasını təqdim edir. Sənəd Prof. Qərib Mürşüdovun (MRC LMB Cambridge / REFMAC5) kristalloqrafik prinsipləri və Süleyman Hacızadənin (Suleiman M Hajizadeh) tədqiqat protokolu əsasında hazırlanmışdır.
 
 ---
 
