@@ -24,7 +24,6 @@ Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier 
 
    en/index
    en/carbox
-   en/carboxmol
    en/restraints
    en/citation
 
@@ -34,7 +33,6 @@ Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier 
 
    az/index
    az/carbox
-   az/carboxmol
    az/restraints
    az/citation
 
@@ -44,7 +42,6 @@ Structural Identification of Anomalous Carboxyl Protonation States, Low-Barrier 
 
    he/index
    he/carbox
-   he/carboxmol
    he/restraints
    he/citation
 

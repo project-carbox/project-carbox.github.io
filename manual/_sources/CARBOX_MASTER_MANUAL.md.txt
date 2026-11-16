@@ -1,14 +1,12 @@
-# CARBOX & CARBOXMOL: THE DEFINITIVE MONOGRAPH & TECHNICAL REFERENCE MANUAL
+# CARBOX: THE DEFINITIVE MONOGRAPH & TECHNICAL REFERENCE MANUAL
 
 **Macromolecular Crystallography, Quantum Biophysics of Carboxylate–Carboxylate Dyads, High-Throughput Protonation State Modeling, Electron Density Validation, and 3D Graphical Workbench Architecture**
 
 ---
 
-### Author & Developer
-* **Suleiman M Hajizadeh** — Concept, Lead Software Architecture & Computational Development
-
-### Scientific Inspiration & Theoretical Foundation
-* **Prof. Garib N Murshudov** (MRC Laboratory of Molecular Biology, Cambridge, UK) — Invaluable theoretical inspiration in macromolecular crystallographic refinement (REFMAC5, ProSMART, Servalcat) and scientific seminar presentation (20 October 2026).
+### Scientific Authors
+* **Suleiman M Hajizadeh** — Lead Software Architecture, Algorithm Engineering & Computational Modeling
+* **Garib N Murshudov** (MRC Laboratory of Molecular Biology, Cambridge, UK) — Theoretical Foundations of Crystallographic Refinement (REFMAC5, Servalcat) & Validation Methodology
 
 **Version:** 0.4.5  
 **License:** Mozilla Public License 2.0 (MPL-2.0)  
@@ -64,48 +62,19 @@
    - 7.10 `ligands.py`: Ligand Interaction Profiling
    - 7.11 `fetch.py`: Universal Multi-Source Structure & Map Retrieval
    - 7.12 `cli.py`: Command-Line Interface & Pipeline Orchestration
-8. [The Crystallographic Workbench Engine: `carboxmol/` Package](#8-the-crystallographic-workbench-engine-carboxmol-package)
-   - 8.1 Architecture & Design Principles: The CarboxMol Crystallographic Engine
-   - 8.2 Subsystem Breakdown:
-     - `core/`: Process Management & Environment Setup
-     - `model/`: Molecular Hierarchies & Selection Algebra
-     - `view/`: 3D Scene Composition & Camera Systems
-     - `qtgui/`: Graphical User Interface Components & Inspector Decks
-     - `scripting/`: Crystallographic Scripting & Macro Execution
-     - `wrappers/`: External Program Execution Wrappers
-     - `lib/`: Monomer Dictionaries & Restraint Templates
-   - 8.3 The CXL Scripting Language: Syntax, Parser & Execution
-   - 8.4 Automated Restraint Injection & Refinement Pipeline
-9. [The Modern Web Platform & Studio: `webapp/` and `public/`](#9-the-modern-web-platform--studio-webapp-and-public)
-   - 9.1 Zero-Dependency Vanilla Architecture
-   - 9.2 High-Performance 3D Scene Graph (CarboxMol WebGL Integration)
-   - 9.3 Real-Time Density Engine: Mode 0 Decompression & Dual-Mesh Generation
-   - 9.4 Precision Trackpad & Mouse Gesture Engine
-     - CarboxMol Density Contour Scroll Mode (`D` Shortcut)
-     - Mac Trackpad Two-Finger Continuous Velocity Normalization
-     - Discrete Mouse Wheel Notch Detection
-     - Interactive Floating HUD & Click-Drag Sigma Adjustment
-   - 9.5 1D Density Profile Visualizer
-   - 9.6 Interactive Refinement Suite: Carbox Refinement Suite
-   - 9.7 Trilingual Internationalization Engine (EN, AZ, HE) & RTL Typography
-10. [Exhaustive Directory-by-Directory Master Catalog](#10-exhaustive-directory-by-directory-master-catalog)
-    - 10.1 Root Directory Files
-    - 10.2 `.agents/`
-    - 10.3 `carbox/`
-    - 10.4 `carboxmol/` (and all subtrees)
-    - 10.5 `docs/`
-    - 10.6 `examples/`
-    - 10.7 `output/`
-    - 10.8 `public/`
-    - 10.9 `scripts/`
-    - 10.10 `tests/`
-    - 10.11 `webapp/`
-11. [Legal, Licensing, Copyright & Open-Source Compliance](#11-legal-licensing-copyright--open-source-compliance)
-    - 11.1 Mozilla Public License 2.0 (MPL-2.0) Architecture
-    - 11.2 Dual Authorship Attribution & Academic Moral Rights
-    - 11.3 Open-Source Crystallographic Ecosystem & Standards
-    - 11.4 Statement of Non-Infringement & Ethical Integrity
-12. [Bibliography & Comprehensive Scientific References](#12-bibliography--comprehensive-scientific-references)
+8. [Interoperability & Integration with CarboxMol Workbench](#8-interoperability--integration-with-carboxmol-workbench)
+   - 8.1 Macro and Script Generation (.CXL)
+   - 8.2 Restraints and Coordinate Transfer
+   - 8.3 Companion 3D Workbench: CarboxMol
+9. [Exhaustive Directory-by-Directory Master Catalog](#9-exhaustive-directory-by-directory-master-catalog)
+   - 9.1 Root Directory Files
+   - 9.2 Core Engine (`carbox/`)
+10. [Legal, Licensing, Copyright & Open-Source Compliance](#10-legal-licensing-copyright--open-source-compliance)
+    - 10.1 Mozilla Public License 2.0 (MPL-2.0) Architecture
+    - 10.2 Authorship Attribution & Academic Moral Rights
+    - 10.3 Open-Source Crystallographic Ecosystem & Standards
+    - 10.4 Statement of Non-Infringement & Ethical Integrity
+11. [Bibliography & Comprehensive Scientific References](#11-bibliography--comprehensive-scientific-references)
 
 ---
 
@@ -699,338 +668,73 @@ The `carbox/` package comprises eleven specialized computational biophysics modu
 
 ---
 
-## 8. THE CRYSTALLOGRAPHIC WORKBENCH ENGINE: `carboxmol/` PACKAGE
+## 8. INTEROPERABILITY & INTEGRATION WITH CARBOXMOL WORKBENCH
 
-### 8.1 Architecture & Design Principles: The CarboxMol Crystallographic Engine
-The `carboxmol/` package provides a native, cross-platform macromolecular crystallography workstation. CarboxMol unifies the core molecular model, crystallographic selection algebra, map rendering, and process management into a high-performance Python/Qt framework, seamlessly coupled with modern OpenGL and WebGL pipelines.
+Carbox serves as the high-throughput mathematical, biophysical, and crystallographic calculation engine. To facilitate visual inspection, real-time map carving, and molecular dynamics simulation, Carbox integrates seamlessly with the companion **CarboxMol Workbench**:
 
-### 8.2 Subsystem Breakdown
+### 8.1 Macro and Script Generation (.CXL)
+Carbox automatically produces Carbox eXtensible Language (`.cxl`) macro scripts via the `carbox macro` CLI command:
+* Centers the crystallographic viewport directly onto validated carboxylate dyads ($d_{O\cdots O} \le 3.20\,	ext{Å}$).
+* Automatically highlights active site donor and acceptor oxygens.
+* Issues map carving commands around the active site envelope (default $4.5\,	ext{Å}$ radius).
 
-#### `core/`: Process Management & Environment Setup
-* `CARBOXMOLProcessManager.py`: Asynchronous process manager that coordinates external crystallographic refinement tasks (Carbox Refinement & Cryo-EM Engine) without blocking the graphical user interface. Manages standard input/output pipes, environment variables (`$CCP4`, `$CLIBD_MON`), and real-time execution logging.
+### 8.2 Restraints and Coordinate Transfer
+Restraint files generated by `carbox refine` (REFMAC5 `exte dist` records and Servalcat parameters) can be loaded directly into CarboxMol or any standard CCP4 refinement workflow to regularize anomalous protonation geometries.
 
-#### `model/`: Molecular Hierarchies & Selection Algebra
-* `CARBOXMOLModel.py`: Represents the hierarchical molecular data tree:
-  $$\text{Model} \to \text{Chain} \to \text{Residue} \to \text{Atom}$$
-* `CARBOXMOLSelectionTree.py`: Powerful crystallographic selection parser supporting standardized selection syntax:
-  ```
-  //A/25-35/CA
-  //B/ASP/OD1,OD2
-  chain A and resno 102
-  ```
-
-#### `view/`: 3D Scene Composition & Camera Systems
-* `CARBOXMOLScene.py`: Manages the OpenGL/WebGL rendering pipeline, depth cueing shaders, camera projection matrices (orthographic and perspective), rotation pivots, and clipping planes (slabs).
-
-#### `qtgui/`: Graphical User Interface Components & Inspector Decks
-* `CARBOXMOLMainWindow.py`: Primary application window containing menu bars, toolbar docks, sequence viewers, and telemetry decks.
-* `CARBOXMOLModelWidgets.py`: Specialized tree views, atom picking tables, and restraint parameter editors with regex input validation.
-
-#### `scripting/`: Crystallographic Scripting & Macro Execution
-* Bi-directional communication bridge generating Python and CarboxMol Exchange Language (`.cxl`) macro scripts. Allows users to click an anomaly in Carbox and automatically center the 3D viewport on the exact coordinates.
-
-#### `wrappers/`: External Program Execution Wrappers
-* Standardized wrappers for parsing execution logs from CCP4 tools (`carbox-refine`, `carbox-density`).
-
-#### `lib/`: Monomer Dictionaries & Restraint Templates
-* Contains crystallographic dictionary definitions (`.cif`) defining ideal bond lengths, bond angles, and planarity restraints for protonated aspartate (`ASH`) and protonated glutamate (`GLH`).
-
-### 8.3 The CXL Scripting Language: Syntax, Parser & Execution
-CarboxMol features an integrated domain-specific scripting language known as **CXL (Carbox eXtensible Language)**. CXL provides a concise, reproducible syntax for crystallographic visualization, density map contouring, and measurement automation.
-
-#### Formal CXL Command Grammar:
-```
-LOAD <pdb_id_or_path> [, type="pdb"|"cif"]
-ZOOM_PAIR <chain1>:<resi1>, <chain2>:<resi2> [, radius=<float>]
-MAP_FETCH <pdb_id>, type="2fofc"|"fofc", sigma=<float>
-MAP_CONTOUR id=<str>, color=<hex_or_name>, style="wireframe"|"surface"
-MEASURE_DIST <atom1_cid>, <atom2_cid>
-SET_PROTON_STATE "none"|"forward"|"reverse"|"shared"
-AUDIT_ATOMS [selection=<str>]
-EXPORT_RESTRAINTS engine="xray"|"cryoem", out=<path>
-```
-
-#### Example CXL Macro:
-```
-LOAD "3X2M"
-ZOOM_PAIR A:102, A:104, radius=6.5
-MAP_FETCH "3X2M", type="2fofc", sigma=1.4
-MAP_FETCH "3X2M", type="fofc", sigma=3.0
-SET_PROTON_STATE "shared"
-MEASURE_DIST //A/102/OD1, //A/104/OD2
-EXPORT_RESTRAINTS engine="xray", out="restraints_3x2m.txt"
-```
-
-The CXL interpreter in `carboxmol/scripting/cxl_interpreter.py` parses commands line-by-line using regular expressions, maps them to internal workbench state methods, and executes them with full error handling and visual telemetry feedback.
-
-### 8.4 Automated Restraint Injection & Refinement Pipeline
-CarboxMol bridges the gap between visualization and physical model refinement:
-1. User identifies an anomalous carboxyl pair in the 3D viewport.
-2. User selects **Inject Monoprotonated Restraints**.
-3. CarboxMol modifies the internal coordinate record, inserting the calculated shared proton atom ($H\delta2$ or $H\epsilon2$).
-4. Generates an external restraint file constraining:
-   * $d(O_1 - H) = 1.15 \pm 0.03$ Å.
-   * $d(O_2 \cdots H) = 1.30 \pm 0.05$ Å.
-   * Angle $C_1 - O_1 - H = 112^\circ \pm 3^\circ$.
-5. Dispatches a non-blocking background job to **Carbox Refinement Engine** to execute 10 cycles of restrained refinement.
-6. Automatically re-loads the refined coordinates and regenerated $2F_o - F_c$ and $F_o - F_c$ maps, rendering before/after difference comparisons.
+### 8.3 Companion 3D Workbench: CarboxMol
+For interactive 3D WebGL electron density streaming, continuous trackpad-driven $\sigma$ adjustment, GROMACS simulation setups, and desktop GUI interaction, refer to the dedicated **CarboxMol** suite:
+* **CarboxMol Read the Docs:** [https://carboxmol.readthedocs.io/en/latest/](https://carboxmol.readthedocs.io/en/latest/)
+* **CarboxMol Web Portal:** [https://carboxmol.github.io/](https://carboxmol.github.io/)
 
 ---
 
-## 9. THE MODERN WEB PLATFORM & STUDIO: `webapp/` AND `public/`
+## 9. EXHAUSTIVE DIRECTORY-BY-DIRECTORY MASTER CATALOG
 
-The modern Carbox Web Studio (`webapp/` mirrored with zero drift to `public/`) is an enterprise-grade, browser-based crystallographic workbench built with zero third-party framework overhead (pure Vanilla HTML5, CSS3, and modern ECMAScript).
-
-### 9.1 Zero-Dependency Vanilla Architecture
-By deliberately avoiding heavy frameworks (React, Angular, Vue, Tailwind), Carbox Web Studio achieves:
-* Instant loading time ($< 150\text{ ms}$).
-* Complete immunity from npm dependency rot and breaking build pipeline deprecations.
-* Direct, unmediated access to WebGL rendering contexts and high-frequency animation frames ($60\text{ fps}$).
-* Complete standalone portability: can be served from GitHub Pages, embedded in a Jupyter notebook, or opened directly from a local `file://` URI.
-
-### 9.2 High-Performance 3D Scene Graph (CarboxMol WebGL Integration)
-The 3D rendering pipeline is anchored by **CarboxMol WebGL**, accelerated via custom styling and post-processing routines in `webapp/studio.js`:
-* **Depth Cueing (Atmospheric Obsidian Fog):** Background atoms fade smoothly into deep slate `#090d16`, emphasizing the illuminated active-site pocket.
-* **White Focus Contrast Mode:** When a carboxyl dyad is selected, its carbon atoms are automatically illuminated in brilliant alabaster white (`#ffffff`), while the surrounding protein skeleton is rendered in subtle semi-transparent CPK or pastel chain colors.
-* **Focal Contrast Radius (Carving):** Carbox cuts through massive macromolecular maps by displaying density only within a configurable radius ($4.5$ Å pocket, $6.5$ Å sphere, or $2.0$ Å residue envelope) around the target site.
-
-### 9.3 Real-Time Density Engine: Mode 0 Decompression & Dual-Mesh Generation
-The browser studio loads and renders both primary $2F_o - F_c$ maps and differential $\pm F_o - F_c$ maps simultaneously:
-1. Fetches binary maps directly from EBI/PDBe via CORS-enabled streaming ArrayBuffers.
-2. Evaluates the binary header via `ensureMode2MapBuffer()`, transparently decompressing Mode 0 maps into IEEE-754 Float32Array buffers.
-3. Calculates map RMS directly from CCP4 Word 55 (Float 54), or computes robust standard deviation over non-zero voxels, caching `volData._cachedRMS` to eliminate high-frequency recalculation during interactive gestures.
-4. Generates two distinct isosurface wireframe meshes using the Marching Cubes algorithm:
-   * **$2F_o - F_c$ Map:** Crisp cyan mesh (`#38bdf8`), contoured at user-selected $\sigma$ (default $1.4\sigma$).
-   * **$+F_o - F_c$ Positive Difference Map:** Emerald green mesh (`#22c55e`), contoured at calibrated $+3.0\sigma$ to reveal unmodeled features without background noise.
-   * **$-F_o - F_c$ Negative Difference Map:** Coral red mesh (`#ef4444`), contoured at calibrated $-3.0\sigma$ to highlight steric clashes and over-modeled atoms.
-
-### 9.4 Precision Trackpad & Mouse Gesture Engine
-A primary triumph of Carbox Studio v0.4.5 is its **CarboxMol Precision Gesture Engine**, providing smooth, responsive mouse and trackpad density adjustment.
-
-#### 1. CarboxMol Density Contour Scroll Mode (`D` Shortcut)
-* The scroll wheel is natively assigned to adjusting map contour levels ($\sigma$).
-* Carbox Studio provides a dedicated toolbar button (`#btn-vp-scroll-mode`, with active cyan glow) and a global keyboard shortcut (`D` or `d`) that toggles scroll wheel behavior between:
-  * **Density Contour Mode (CarboxMol Mode - Default):** Scrolling adjusts $\sigma$ level directly.
-  * **Camera Zoom Mode:** Scrolling zooms the 3D camera.
-* If no electron density map is currently active, scrolling automatically falls back to camera zoom, ensuring navigational fluidity.
-
-#### 2. Mac Trackpad Continuous Velocity Normalization
-* Standard mouse wheels emit discrete click events (`deltaY = ±100` or `±120`).
-* Mac trackpads emit high-frequency, continuous two-finger drag events (`deltaY = ±1` to `±5`).
-* Carbox Studio distinguishes between discrete clicks and trackpad gestures:
-  ```javascript
-  let deltaSigma = 0;
-  if (Math.abs(e.deltaY) >= 50) {
-      // Discrete mouse wheel click: 0.05σ per notch
-      deltaSigma = e.deltaY < 0 ? 0.05 : -0.05;
-  } else {
-      // Continuous smooth trackpad drag: proportional velocity scaling
-      deltaSigma = -e.deltaY * 0.0035;
-  }
-  ```
-* Sliding two fingers forward/up increases the contour level ($+\sigma$, tighter surface, less noise); sliding backward/down decreases the contour level ($-\sigma$, broader envelope).
-
-#### 3. Global Modifier Overrides
-* Holding <kbd>Alt</kbd> or <kbd>Ctrl</kbd> while scrolling forces density contour adjustment in any mode.
-* Holding <kbd>Shift</kbd> while scrolling adjusts the **Slab Depth Slice** (crystallographic clipping plane), slicing through the protein from $4$ Å to $100$ Å.
-* Pressing <kbd>[</kbd> or <kbd>]</kbd> decrements or increments $\sigma$ in precise $0.05\sigma$ steps.
-
-#### 4. Direct Deck, Slider, and Floating HUD Interaction
-* Scrolling the mouse wheel or dragging a trackpad directly over:
-  * The density control deck (`#studio-density-deck`),
-  * The $2F_o - F_c$ slider (`#studio-density-sigma-range`),
-  * The difference slider (`#studio-density-diff-sigma-range`),
-  * The focal contrast card (`#density-focus-info-card`), or
-  * The floating HUD badge (`#studio-contour-hud`),
-  immediately adjusts density contour levels without requiring canvas focus.
-* **Click-and-Drag Vertical HUD Adjustment:** Users can click directly on the floating HUD badge and drag vertically up/down to dynamically alter the contour level.
-* All visual updates (slider position, numeric readout, floating badge, 3D wireframe mesh) are debounced via `requestAnimationFrame`, maintaining an uncompromising $60\text{ fps}$.
+This chapter provides a concise catalog of foundational modules across the Carbox core codebase:
 
 ```
-+-------------------------------------------------------------------------+
-|                CARBOX STUDIO GESTURE & SHORTCUT MATRIX                  |
-+------------------------------------+------------------------------------+
-| GESTURE / KEY                      | ACTION                             |
-+------------------------------------+------------------------------------+
-| Scroll Wheel / 2-Finger Trackpad   | Adjust Density Contour (CarboxMol Mode) |
-| Alt / Ctrl + Scroll                | Force Density Contour Adjustment   |
-| Shift + Scroll                     | Adjust Slab Depth (Clip Planes)    |
-| D / d Key                          | Toggle Scroll Mode (Contour / Zoom)|
-| [ / ] Keys                         | Step Contour Level (-/+ 0.05σ)     |
-| + / - Keys                         | Zoom In / Zoom Out                 |
-| Space / R Key                      | Reset View & Fit Macromolecule     |
-| C Key                              | Recenter Rotation Pivot on Target  |
-| P / S Key                          | High-Resolution PNG Snapshot       |
-| Esc Key                            | Clear Measurement / Close HUD      |
-| Direct Drag on HUD Badge           | Vertical Drag Contour Adjustment   |
-+------------------------------------+------------------------------------+
+carbox/
+├── carbox/                     (Core Python calculation & validation engine)
+│   ├── __init__.py             (Package initializer and version metadata)
+│   ├── cli.py                  (Command-line interface and subcommands)
+│   ├── core.py                 (Foundational geometry, KD-tree neighborhood search)
+│   ├── criteria.py             (Tukey IQR outlier analysis & Fisher Z statistics)
+│   ├── fetch.py                (Universal structural data fetcher: PDB, PDBe, AlphaFold)
+│   ├── graph.py                (Graph-theoretical clustering & network topology)
+│   ├── ligands.py              (Ligand & cofactor interaction profiling)
+│   ├── pka.py                  (Dielectric burial & empirical pKa perturbation)
+│   ├── protonation.py          (Proton placement geometry & 1D PES simulation)
+│   ├── refinement.py           (Automated REFMAC5 & Servalcat restraint generator)
+│   ├── suspicious_atom.py      (Multi-criteria atomic clash & B-factor auditor)
+│   └── zeta_density.py         (Gemmi electron density bridge & RSCC evaluator)
+├── docs/                       (Read the Docs documentation portal)
+├── examples/                   (Benchmark coordinates & restraint models)
+├── output/                     (Execution output logs, CSVs, and validation reports)
+├── scripts/                    (Validation and synchronization pipelines)
+└── tests/                      (Comprehensive pytest validation suite)
 ```
 
-### 9.5 1D Density Profile Visualizer
-Clicking **1D Density Profile** opens an interactive modal calculating the experimental density gradient along the inter-oxygen axis. The visualizer renders:
-* The electron density curve $\rho(t)$ along the vector.
-* Peak positions for both carboxylate oxygen atoms.
-* The saddle point bridge density.
-* Numerical integration of total shared electrons between the oxygens.
-* One-click export to high-resolution CSV, SVG, and publication-ready LaTeX `pgfplots` tables.
+### 9.1 Root Directory Files
+* `pyproject.toml`: Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (`gemmi`, `numpy`, `scipy`), and CLI entrypoints (`carbox = carbox.cli:main`).
+* `setup.py`: Backward-compatible setuptools build script.
+* `README.md`: Primary repository landing page featuring project description, installation instructions, and citation information.
+* `LICENSE`: Full text of the Mozilla Public License 2.0 (MPL-2.0).
 
-### 9.6 Interactive Refinement Suite: Carbox Refinement Suite
-Carbox Studio embeds a complete refinement configuration suite accessible via the **Launch Refinement Suite** modal:
-* **Carbox X-Ray Mode:** Configures maximum-likelihood restrained refinement parameters, twin refinement, jelly-body restraints, and custom weight matrices ($AUTO$ vs. user weight).
-* **Carbox Cryo-EM Mode:** Configures cryo-EM atomic model refinement or modern X-ray refinement against MTZ/unmerged reflections, with automated hydrogen atom addition in riding or unconstrained positions.
-* **CCP4 Cloud Integration:** Generates executable bash scripts and python command-line invocations ready to run locally or upload directly into a CCP4 Cloud project container.
-
-### 9.7 Trilingual Internationalization Engine (EN, AZ, HE) & RTL Typography
-Carbox Studio features complete, native internationalization across three languages:
-* **English (`en`):** The global standard of scientific publishing.
-* **Azerbaijani (`az`):** Honoring the native heritage of the author, Suleiman M Hajizadeh, and celebrating Azerbaijani contributions to structural biology.
-* **Hebrew (`he`):** Featuring complete bidirectional **Right-to-Left (RTL)** layout mirroring, customized Heebo typography, mirrored flexbox containers, and culturally tailored iconography.
+### 9.2 Core Engine (`carbox/`)
+* `core.py`: Vector math, bond angle/torsion geometry, KD-tree spatial search, and coordinate transformations.
+* `criteria.py`: Implementation of the Carbox Platform Validation Axiom, Tukey non-parametric IQR outlier detection, and Fisher Z-score normalization.
+* `pka.py`: Microenvironmental $	ext{p}K_a$ perturbation calculations based on dielectric desolvation and water burial index ($d_w$).
+* `protonation.py`: Classical and quantum 1D potential energy surface (PES) modeling and proton coordinate calculation.
+* `refinement.py`: Automated restraint generation (`exte dist`) for REFMAC5 and Servalcat refinement engines.
+* `suspicious_atom.py`: Multi-criteria atomic coordinate and displacement parameter auditor.
+* `graph.py`: Graph-theoretical network clustering of macromolecular carboxyl clusters.
+* `zeta_density.py`: Gemmi-powered electron density map sampler, real-space correlation coefficient (RSCC) computer, and difference peak evaluator.
 
 ---
 
-## 10. EXHAUSTIVE DIRECTORY-BY-DIRECTORY MASTER CATALOG
+## 10. LEGAL, LICENSING, COPYRIGHT & OPEN-SOURCE COMPLIANCE
 
-This chapter provides a comprehensive, rigorous catalog of every single directory, subdirectory, and foundational file across the entire Carbox repository.
-
-```
-Carbox/
-├── carbox/                     (Core Python high-throughput & validation engine)
-├── carboxmol/                  (Desktop crystallography workbench & CXL bridge)
-│   ├── bin/                    (Platform-specific wrapper binaries)
-│   ├── core/                   (Process management & subprocess orchestration)
-│   ├── deprecated/             (Archived historical legacy modules)
-│   ├── lib/                    (Monomer library dictionaries & CIF restraints)
-│   ├── model/                  (Molecular hierarchy & selection algebra)
-│   ├── qtgui/                  (Qt/PyQt user interface components & dialogs)
-│   ├── tests/                  (Workbench-specific unit & integration tests)
-│   ├── view/                   (OpenGL scene graph & camera controllers)
-│   └── wrappers/               (CCP4 external tool integration wrappers)
-├── docs/                       (ReadTheDocs-style trilingual documentation portal)
-├── examples/                   (Benchmark coordinates, MTZ maps & refined models)
-├── output/                     (Default execution sink for logs, CSVs & reports)
-├── public/                     (Production web deployment mirror of webapp/)
-├── scripts/                    (Automation pipelines, batch processors & builders)
-├── tests/                      (Complete test suite: 141 pytest modules)
-└── webapp/                     (Source directory for Carbox Web Studio)
-```
-
----
-
-### 10.1 Root Directory Files
-* [pyproject.toml](pyproject.toml): Modern PEP-518/PEP-621 build configuration file. Defines project metadata, dependencies (`gemmi`, `numpy`, `scipy`, `propka`, `requests`, `pytest`, `pytest-cov`), CLI entrypoints (`carbox = carbox.cli:main`), and pytest settings.
-* [setup.py](setup.py): Backward-compatible setuptools build script for legacy pip installations.
-* [README.md](README.md): Primary repository landing page featuring project description, badges, installation instructions, gallery, and citation information.
-* [LICENSE](LICENSE): Full text of the Mozilla Public License 2.0 (MPL-2.0).
-* [CARBOX_MASTER_MANUAL.md](CARBOX_MASTER_MANUAL.md): This master monograph.
-
----
-
-### 10.3 `carbox/` (The Core Engine)
-* [__init__.py](carbox/__init__.py): Package initializer exposing top-level API functions and version metadata (`__version__ = "0.4.5"`).
-* [cli.py](carbox/cli.py): Complete command-line interface implementation using `argparse`. Subcommands include `scan`, `fetch`, `audit`, `refine`, and `batch`.
-* [core.py](carbox/core.py): Fundamental geometry engine, atom data classes, KD-tree neighborhood search, and contact detection algorithms.
-* [fetch.py](carbox/fetch.py): Universal structural data fetcher supporting RCSB PDB, PDBe, AlphaFold DB, and local file portal fallback.
-* [graph.py](carbox/graph.py): Graph-theoretical clustering and network topology analysis of carboxylate interactions.
-* [ligands.py](carbox/ligands.py): Small molecule, cofactor, and drug interaction analyzer for carboxylate binding pockets.
-* [criteria.py](carbox/criteria.py): The Carbox Platform Validation Engine implementing Tukey non-parametric IQR outlier analysis and Fisher Z-score standardization.
-* [pka.py](carbox/pka.py): Acid dissociation constant ($\text{p}K_a$) prediction engine integrating PROPKA and analytical burial calculations.
-* [protonation.py](carbox/protonation.py): Proton placement geometry and 1D potential energy surface simulation.
-* [refinement.py](carbox/refinement.py): Automatic restraint generator for Carbox Refinement and Cryo-EM Engines, including `MODRES` protonation records.
-* [suspicious_atom.py](carbox/suspicious_atom.py): Deep atom auditing engine detecting steric clashes, B-factor anomalies, and insertion code inconsistencies.
-* [zeta_density.py](carbox/zeta_density.py): Gemmi-powered electron density sampler, Fisher Z field computer, and difference peak evaluator.
-
----
-
-### 10.4 `carboxmol/` (The Desktop Crystallographic Workbench)
-* [__init__.py](carboxmol/__init__.py): Package initializer exposing workbench components.
-* `core/`:
-  * `CARBOXMOLProcessManager.py`: Subprocess management, environment variable path configuration, and non-blocking execution of external crystallographic software.
-* `model/`:
-  * `CARBOXMOLModel.py`: In-memory macromolecular data structure representing models, chains, residues, and atoms.
-  * `CARBOXMOLSelectionTree.py`: Crystallographic atom selection parser and CID interpreter.
-* `view/`:
-  * `CARBOXMOLScene.py`: 3D OpenGL viewport management, projection matrices, lighting shaders, and clipping slabs.
-* `qtgui/`:
-  * `CARBOXMOLMainWindow.py`: Primary Qt GUI window and dock layouts.
-  * `CARBOXMOLModelWidgets.py`: Specialized UI tree views, table delegates, and regex-validated input fields.
-* `scripting/`:
-  * Native macro and batch execution engine generating Python and CXL scripts for interactive CarboxMol sessions.
-* `wrappers/`:
-  * `adding_stats_to_mmcif_i2/`: Wrapper script extracting data reduction and refinement statistics from Aimless XML logs and injecting them into mmCIF reflection files.
-* `lib/`:
-  * Standard monomer library restraint dictionaries (`.cif`) defining ideal geometry for protonated Asp (`ASH`) and Glu (`GLH`).
-* `deprecated/`:
-  * Historical archived modules (e.g., `carbox_martin/`) maintained for backward compatibility and provenance tracking.
-
----
-
-### 10.5 `docs/` (Documentation Portal)
-* [index.html](docs/index.html): Standalone, light-themed documentation portal covering all aspects of Carbox and CarboxMol.
-* [downloads.html](docs/downloads.html): Dedicated downloads hub for standalone binaries, python wheels, and documentation artifacts.
-* `assets/`: Scalable vector graphics (SVG), logos, and branding assets (`docs_logo.svg`, `download_logo.svg`).
-* `en/`, `az/`, `he/`: Language-specific documentation subportals.
-* `CARBOX_MASTER_MANUAL.md`: Mirrored master reference manual.
-
----
-
-### 10.6 `examples/`
-* Contains benchmark crystallographic structures, MTZ reflection files, and refined models used for verification:
-  * `3X2M.pdb`: Canonical high-resolution benchmark exhibiting catalytic carboxyl dyads.
-  * `4RI3.cif`, `4RI3-sf.cif`, `4RI3_refined.pdb`, `4RI3_refined.mtz`: Full refinement demonstration dataset.
-  * `8PO0_refined.pdb`, `8PO0_refined.mtz`: Cryo-EM and high-resolution test structures.
-  * `0-carboxmol-history.py`: Sample session script illustrating integration with CarboxMol.
-
----
-
-### 10.7 `output/`
-* Default output sink directory generated by CLI commands, batch scans, and refinement runs. Contains execution logs, CSV anomaly summaries, generated restraint files, and interactive HTML dashboards.
-
----
-
-### 10.8 `public/`
-* Production mirror of the `webapp/` directory deployed directly to GitHub Pages or static web servers. Maintained at **100% zero drift** relative to `webapp/`.
-
----
-
-### 10.9 `scripts/`
-* Specialized standalone automation scripts and batch processors:
-  * `audit_929_anomalies_criteria.py`: Executes the complete Carbox Platform audit over the 929 initial PDB anomaly candidates, generating the benchmark decontamination report.
-  * `build_docs.py`: Compiles the trilingual ReadTheDocs-style documentation portal.
-  * `run_pdb_pipeline.py`: Automated daemon for batch-downloading PDB entries, executing Carbox analysis, and aggregating results.
-
----
-
-### 10.10 `tests/`
-* Exhaustive automated test suite encompassing **141 passing tests** with 100% pass rate:
-  * `test_core.py`: Core geometry, constants, and basic detection routines.
-  * `test_criteria.py`: Tukey IQR filters, Fisher Z-scores, and anomaly verdicts.
-  * `test_protonation_suite.py`: Proton placement stereochemistry and PES simulations.
-  * `test_refinement_engine.py`: Carbox Refinement restraint generation and `MODRES` injection.
-  * `test_suspicious_atom.py`: Multi-criteria atom auditing and clash detection.
-  * `test_zeta_density.py`: Gemmi map sampling and Fisher Z correlation.
-  * `test_ligand_interactions.py`: Small molecule binding site profiling.
-  * `test_carbox_graph.py`: Graph-theoretical network clustering.
-  * `test_carboxmol_*.py`: Full suite testing CarboxMol engine, CXL interpreter, IO, and geometry.
-
----
-
-### 10.11 `webapp/` (Carbox Web Studio)
-* [index.html](webapp/index.html): Primary Dashboard landing page featuring PDB accession input, telemetry cards, and quick-analysis decks.
-* [studio.html](webapp/studio.html): The complete 3D Macromolecular Crystallography Studio interface.
-* [downloads.html](webapp/downloads.html): Downloads hub for users to obtain standalone packages, manuals, and datasets.
-* [studio.css](webapp/studio.css): Deep Obsidian luxury stylesheet defining all desktop docks, viewport controls, and animations.
-* [studio.js](webapp/studio.js): Master Web Studio JavaScript engine (10,800+ lines): 3Dmol.js integration, Mode 0 decompression, CarboxMol precision gesture engine, HUD, and trilingual i18n.
-* [app.js](webapp/app.js): Dashboard controller, telemetry visualizer, and search engine.
-* [data.js](webapp/data.js): Curated pre-indexed database of verified carboxylate dyads.
-* [structures.js](webapp/structures.js): High-throughput structure catalog metadata.
-* [sw.js](webapp/sw.js): Progressive Web App (PWA) service worker enabling full offline caching.
-* `assets/`: High-resolution SVGs, icons, and diagrams.
-
----
-
-## 11. LEGAL, LICENSING, COPYRIGHT & OPEN-SOURCE COMPLIANCE
-
-### 11.1 Mozilla Public License 2.0 (MPL-2.0) Architecture
+### 10.1 Mozilla Public License 2.0 (MPL-2.0) Architecture
 The entire Carbox & CarboxMol project is licensed under the **Mozilla Public License, Version 2.0 (MPL-2.0)**.
 
 **Key Principles of MPL-2.0:**
@@ -1039,7 +743,7 @@ The entire Carbox & CarboxMol project is licensed under the **Mozilla Public Lic
 3. **Larger Works:** The MPL-2.0 explicitly permits combining Carbox code with proprietary or differently-licensed software into a "Larger Work," provided the MPL-covered files remain open-source under MPL-2.0.
 4. **Patent Grant:** Contributors grant a non-exclusive, worldwide, royalty-free patent license covering patent claims necessarily infringed by their contributions.
 
-### 11.2 Authorship Attribution & Academic Moral Rights
+### 10.2 Authorship Attribution & Academic Moral Rights
 In accordance with international academic integrity standards and intellectual property conventions:
 * **Suleiman M Hajizadeh** — Sole Software Author, Architecture, Core Algorithm Engineering, Web Studio Engine.
 * **Prof. Garib N Murshudov** — Invaluable Theoretical Inspiration, Crystallographic Refinement Methodology Reference.
@@ -1047,13 +751,13 @@ In accordance with international academic integrity standards and intellectual p
 All academic papers, theses, posters, software distributions, or projects utilizing the Carbox codebase should cite:
 > *Suleiman M Hajizadeh (2026). Carbox: Macromolecular Coordinate & Geometry Calculation Engine for Carboxyl Microenvironments and Stereochemical Validation. Version 0.4.5.*
 
-### 11.3 Open-Source Crystallographic Ecosystem & Standards
+### 10.3 Open-Source Crystallographic Ecosystem & Standards
 Carbox and CarboxMol operate upon and harmonize with open-source structural biology libraries and standards:
 1. **Macromolecular Crystallographic Formats:** High-precision parsing and handling of PDB, mmCIF, MTZ, and CCP4 map standards.
 2. **Computational Libraries:** Integration with high-performance numerical and structural biology modules (Gemmi, 3Dmol.js).
 3. **Refinement Interoperability:** Carbox X-Ray and Cryo-EM refinement parameter generation and model validation.
 
-### 11.4 Statement of Non-Infringement & Ethical Integrity
+### 10.4 Statement of Non-Infringement & Ethical Integrity
 A thorough legal and intellectual property audit confirms that:
 * **Zero Infringing Material:** The Carbox repository contains no pirated software, cracked binaries, confidential industrial trade secrets, or unauthorized proprietary code.
 * **Open Science Standards:** All benchmark datasets (`3X2M`, `4RI3`, `8PO0`) are derived from publicly accessible Protein Data Bank records under Creative Commons Zero (CC0) public domain dedications.
@@ -1061,7 +765,7 @@ A thorough legal and intellectual property audit confirms that:
 
 ---
 
-## 12. BIBLIOGRAPHY & COMPREHENSIVE SCIENTIFIC REFERENCES
+## 11. BIBLIOGRAPHY & COMPREHENSIVE SCIENTIFIC REFERENCES
 
 1. **Murshudov, G. N., Vagin, A. A., & Dodson, E. J. (1997).** Refinement of macromolecular structures by the maximum-likelihood method. *Acta Crystallographica Section D: Biological Crystallography*, 53(3), 240–255.
 2. **Murshudov, G. N., et al. (2011).** Maximum-likelihood refinement of macromolecular crystal structures. *Acta Crystallographica Section D: Biological Crystallography*, 67(4), 355–367.

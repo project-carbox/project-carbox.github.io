@@ -79,12 +79,6 @@
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://project-carbox.github.io/manual/en/carboxmol.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://project-carbox.github.io/manual/en/restraints.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -109,12 +103,6 @@
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://project-carbox.github.io/manual/az/carboxmol.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://project-carbox.github.io/manual/az/restraints.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -134,12 +122,6 @@
   </url>
   <url>
     <loc>https://project-carbox.github.io/manual/he/carbox.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://project-carbox.github.io/manual/he/carboxmol.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
